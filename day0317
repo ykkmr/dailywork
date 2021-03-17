@@ -89,3 +89,39 @@ purge recyclebin;
 
 --휴지통에 있는 테이블 살리기(복구하기)
 flashback table test to before drop;
+ALTER TABLE TEST ADD(CLASS VARCHAR2(1));
+ALTER TABLE TEST ADD(E_MAIL VARCHAR2(50));
+ALTER TABLE TEST ADD(PHONE NUMBER(13));
+ALTER TABLE TEST ADD(ADDRESS VARCHAR2(80));
+ALTER TABLE TEST ADD(GENDER VARCHAR2(6));
+ALTER TABLE TEST ADD(JAVA NUMBER(3));
+
+select * from TEST;
+insert into test(name, age, input_date, class, e_mail, phone, address, gender, java) values('강인섭',20,sysdate,'A','kang@sist.co.kr',01012345678,'경기도 용인시','',91);
+insert into test(name, age, input_date, class, e_mail, phone, address, gender, java) values('박기범',20,sysdate,'A','park@daum.net',01077399761,',서울시 강남구 역삼1동','',90);
+insert into test(name, age, input_date, class, e_mail, phone, address, gender, java) values('송준희',20,sysdate,'A','song@test.com',01058788813,',서울시 동작구 상도동','',97);
+insert into test(name, age, input_date, class, e_mail, phone, address, gender, java) values('이학민',20,sysdate,'A','lee@google.com',0112347611,',서울시  동대문구 동대문동','',190);
+insert into test(name, age, input_date, class, e_mail, phone, address, gender, java) values('한상민',20,sysdate,'A','hansang@sist.co.kr',01043347656,'인천시 부평구 부평3동','',89);
+
+select NAME, class, address, JAVA from TEST;
+
+update test
+set    gender= '', java=90, CLASS='A', PHONE=01022347611
+where  num=4;
+
+update test
+set    CLASS='A', PHONE=01011112341
+where  name='한상민';
+
+delete from test
+where class= 'A';
+rollback;
+
+truncate table test;
+rollback;
+
+drop table test;
+rollback;
+
+purge recyclebin;
+flashback table test to before drop;
