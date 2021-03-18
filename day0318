@@ -1,0 +1,58 @@
+--rollback연습
+
+create table test1(
+name varchar2(15),
+age number(3)
+);
+
+insert into test1(name,age) values('김덕영',26);
+
+select *
+from test1;
+commit;
+
+
+insert into test1(name, age) values('이학민',38);
+
+update test1
+set    age=26
+where  name='이학민';
+
+rollback;
+
+---------------------------------savepoint 사용--------------------------------------------
+
+savepoint insert_a;
+insert into test1(name, age) values('진재혁',300);
+
+savepoint update_b;
+update test1
+set    age=30
+where  name='진재혁';
+
+savepoint delete_c;
+delete from test1
+where name='진재혁';
+
+select * from test1;
+
+rollback to insert_a; -->일회성이다
+
+----------------------------select-----------------------------------------------
+--사원 테이블에서 사원번호, 사원명, 연봉, 보너스, 총 수령액을 조회
+-- 단, 총 수령액은 연봉과 보너스를 합산한 금액으로 계산하여 조회
+
+select empno, ename, sal, comm, sal+comm "total_Sal"
+from   emp;
+
+----------------------------alias------------------------------------------------
+-- alias는 컬럼명에 alias, 컬럼명 as alias
+-- 대소문자 구분하는 컬럼의 사용: 컬럼명 "alias"
+-- 같은 컬럼을 여러개 조회하면 alias가 자동 생성되어 부여된다
+select  deptno d_no, dname as dn, loc "LoC"
+from    dept;
+
+-- 컬럼명의 alias는 where절에서 사용할 수 없다
+select  deptno dno, dname
+from    dept
+where   deptno=10; -->deptno쓰면 나오는데 dno쓰면 안나옴 모른다함
