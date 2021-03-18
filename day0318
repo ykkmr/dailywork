@@ -56,3 +56,36 @@ from    dept;
 select  deptno dno, dname
 from    dept
 where   deptno=10; -->deptno쓰면 나오는데 dno쓰면 안나옴 모른다함
+
+-- 부서테이블에서 부서번호, 부서명, 위치 조회
+-- 단, 부서번호는 현재 부서번호에서 -3을 연산한 값으로 조회
+select deptno, deptno-3 new_deptno, dname, loc
+from   dept;
+
+-- 산술연산자가 아닌 다른 연산자는 조회하는 컬럼명에 사용할 수 없다
+select empno > 10  --> where절에서만 쓸 수 있기 때문에 안됨
+from   emp;
+
+-- 문장 형식의 출력
+-- 사원테이블에서 사원명에 '님'을 붙여 조회
+select ename||'님', '님'||ename, empno||ename
+from   emp;
+
+-- 사원테이블에서 사원번호, 사원명, 연봉을 조회
+-- 단, 조회형식은 "사원명(사원번호)님의 연봉은 XXX$입니다." 로 조회하고,
+-- 컬럼명은 output으로 설정할 것
+select ename||'('||empno||')님의 연봉은'|| sal||'$입니다' output
+from   emp;
+
+-- 사원테이블에서 사원번호, 사원명, 직무, 연봉, 세금을 조회
+-- 단, 세금은 연봉에서 3.3%로 계산하여 조회할 것
+-- 세금계산한 컬럼에는 alias 사용
+select empno, ename, job, sal, sal*0.033 tax
+from   emp;
+
+-- 사원테이블에서 사원번호,사원번호의 결과, 사원명 조회
+-- 단, 사원번호의 결과는 짝수면 0을 홀수면 1을 조회할 것.
+select empno, mod(empno,2), ename
+from   emp;
+
+
