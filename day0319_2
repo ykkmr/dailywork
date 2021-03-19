@@ -1,0 +1,76 @@
+------------------------------문자열 함수-------------------------------------------
+-- 문자열 길이
+select  length('test'), length('오늘은 금요일')
+from    dual;
+
+-- 사원테이블에서 사원명이 4글자이상인 사원의 사원명, 사원번호 , 입사일 조회
+select ename, empno, hiredate
+from   emp
+where  length(ename)>=4;
+
+-- 대문자 , 소문자 변환
+select upper('abcd'), upper('Abcd'), lower('ABCD'), lower('AbCd')
+from   dual;
+
+-- 사원테이블에서 사원명이 'scott'인 사원의 사원번호, 사원명, 직무, 연봉, 입사일을 조회
+select empno, ename, job, sal, hiredate
+from   emp
+--where  ename like upper('scott');
+where  lower(ename)='scott';
+
+-- 첫글자를 대문자로
+select  initcap('java'), initcap('oracle'), initcap('i am a boy')
+from    dual;
+
+-- 문자열 내에 특정문자열의 인덱스 얻기
+select  instr('test', 't'), instr('test', 'k')
+from    dual;
+
+-- 사원테이블에서 사원명에 'A'가 있는 사원의 사원명, 사원번호, 연봉을 조회
+select ename, empno, sal
+from   emp
+where  instr(ename, 'A')<>0;
+--where  instr(ename, 'A')!=0;
+
+-- 문자열 자르기
+-- 시작문자로부터 자를 때에는 시작인덱스를 0 또는 1로 사용할 수 있다.
+select  substr('abcdefg',3,4), substr('abcdefg',3), substr('abcdefg',0,4)
+,substr('abcdefg',1,4)
+from    dual;
+
+-- 문자열 합치기
+select  'ABC'||'DEF'||'HIJ', concat( concat('ABC', 'DEF'), 'HIJ')
+from    dual;
+
+-- 공백 제거
+-- 앞뒤 공백 제거
+select  '['||trim('   A BC   ')||']','['||ltrim('  A BC   ')||']',
+        '['||rtrim('   A BC   ')||']'
+from    dual;
+
+-- 문자열이 특정문자열로 감싸져 있을 때 문자열을 삭제할 수 있다
+-- trim( 지울 문자열 from 문자열 )
+select  trim('a' from'aaaaaaOracleaaaaa')
+from    dual;
+
+-- 문자열 치환
+select replace('abcabcabc','bc','a')
+from   dual;
+
+-- 사원테이블에서 사원명을 조회
+-- 단, 사원명에 'A'를 'a'로 변경하여 조회
+select replace(ename,'A','a'), initcap(ename) --> 무조건 앞글자 대문자, 뒤부터 소문자로 바꿔줌
+from   emp;
+
+-- 동일 길이의 문자열 만들기
+-- 왼쪽 채우기
+select lpad('test',10,'가'), lpad('test',15,'#')
+from   dual;
+-- 오른쪽 채우기
+select rpad('test',10,'가'), rpad('test',15,'#')
+from   dual;
+
+-- 사원테이블에서 사원번호, 사원명, 입사일을 조회
+-- 단, 사원번호 SIST_0000001111 의 형식으로 조회할 것
+select concat('SIST_', lpad(empno, 10, 0) ) format_empno, ename, hiredate
+from   emp;
