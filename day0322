@@ -28,3 +28,85 @@ select empno, ename, sal, sal+nvl(comm,0) total_sal,
                 else sal*1.5 -- (when 'PRESIDENT' then sal*1.5)
        end  bonus
 from   emp;
+
+----------------------------Order by-----------------------------------------------
+-- 사원테이블에서 사원번호, 사원명, 연봉, 입사일 조회
+-- 단, 가장 마지막에 입사한 사원부터 조회될 것
+select  empno, ename, sal, hiredate
+from    emp
+order by hiredate desc;
+
+-- 사원테이블에서 사원번호, 사원명, 연봉, 입사일, 부서번호를 조회
+-- 단, 부서번호의 오름차순으로 정렬하되, 부서번호가 같다면 연봉의 오름차순으로 정렬,
+-- 동일 연봉인 경우 사원명의 오름차순으로 정렬
+select   empno, ename, sal, hiredate, deptno
+from     emp
+order by deptno, sal, ename;
+
+-- 사원테이블에서 사원번호, 사원명, 연봉, 직무, 입사일, 부서번호를 조회
+-- 단, 직무의 내림차순으로 정렬하되, 직무가 같다면 연봉의 오름차순으로 정렬하고,
+-- 연봉이 같다면 입사일의 내림차순으로 정렬
+select   empno, ename, sal, job, hiredate, deptno
+from     emp
+order by job, hiredate desc sal asc;
+
+--------------------------------순위함수--------------------------------------------
+-- 사원테이블에서 사원번호, 사원명, 연봉, 연봉의 순위조회
+-- 동일 순위가 발생
+select   empno, ename, sal, rank() over( order by sal )
+from     emp;
+
+-- 동일 순위가 발생하지 않는다
+select   empno, ename, sal, row_number() over( order by sal desc )
+from     emp;
+
+-- 분류별 순위 설정 partition by 사용
+-- 사원번호, 사원명, 부서번호, 연봉, 순위를 조회
+-- 사원테이블에서 부서별로 낮은 연봉부터 순위를 조회 (중복순위는 발생하지 않는다)
+
+select  empno, ename, deptno, sal,
+row_number() over( partition by deptno order by sal ) rank
+from    emp;
+
+-- 사원테이블에서 사원번호, 사원명, 부서번호, 매니저번호, 연봉 조회
+-- 단, 매니저별 높은연봉부터 순위 조회 (중복순위는 발생하지 않는다)
+select empno, ename, deptno, mgr, sal,
+rank() over( partition by sal order by mgr )
+from   emp;
+
+--------------------------집계함수(그룹함수)-------------------------------------
+-- 컬럼값을 모아서 하나로 만드는 함수
+-- 사원테이블에서 전체 사원수를 조회
+select count(empno) /*, ename 여러행이 조회되는 컬럼과 같이 사용되면 에러 발생 */
+from   emp;
+
+-- count는 null인 컬럼에 대해서는 집계에 포함하지 않는다
+select count( comm ), count(mgr)
+from   emp;
+
+-- 사원테이블에서 전체사원수, 보너스를 받는 사원수, 보너스를 받지 않는 사원수를 조회
+select count(empno), count(comm),count(empno)-count(comm) none
+from   emp;
+
+select *  from emp;
+
+-- 사원테이블에서 1년에 연봉으로 지출되는 총액을 조회
+-- sum()은 숫자 컬럼만 넣을 수 있다 sum( ename ) 안됨
+select  sum( sal ), sum( comm ), sum( sal )+sum( comm ) /* sum( ename ) */
+from    emp;
+
+-- avg()는 숫자컬럼만 넣을 수 있다
+-- 사원테이블에서 연봉평균, 실수를 제외한 연봉평균, 보너스 평균을 조회
+select avg(sal), trunc(avg(sal), 0), avg(comm), avg( comm )
+from   emp;
+
+-- max(), min() 숫자컬럼만 넣을 수 있다
+-- 사원테이블에서 연봉의 최고 값, 연봉의 최저 값을 조회
+select max(sal), min(sal)
+from   emp;
+
+---------
+-- 사원테이블에서 평균연봉보다 많이 받는 사원의 사원번호, 사원명, 입사일, 연봉을 조회
+select empno, ename, hiredate, sal
+from   emp
+where  sal > (select avg(sal) from emp);
