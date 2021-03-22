@@ -1,0 +1,20 @@
+ --1
+ select  empno, ename, hiredate, sal
+ from    emp
+ where   to_char(hiredate, 'dy') in('월', '화', '목');
+
+ --2
+SELECT deptno, dname
+FROM DEPT
+where LOC in('DALLAS');
+
+--3
+select  job, empno, sal, count(job)
+from    emp
+group by  rollup(job, empno, sal);
+
+--4
+select    sum(sal), trunc(avg(sal),0), min(sal), count(empno)
+from      emp
+where     to_char(hiredate, 'q') in('3', '4');
+order by  job;
