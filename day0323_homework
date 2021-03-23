@@ -1,0 +1,29 @@
+-- 숙제 1
+create table emp_work as (
+select empno, ename, sal, deptno, job, mgr
+from   emp
+where  sal between 1500 and 3000);
+
+-- 숙제 2
+insert into emp_work(
+select empno+1000, ename, sal, deptno, job, mgr
+from   emp
+where  deptno='10' and deptno='30');
+select * from EMP_WORK;
+
+-- 숙제 3
+update emp_work
+set    sal = ((select sal from emp where empno=7369) + (select sal from emp where empno=7782))
+where deptno=10;
+
+-- 숙제 4
+select * from CAR_MAKER;
+select * from CAR_MODEL;
+
+select model, car_year, price, num, car_option, hiredate, maker
+from(
+  select  model, car_year, price,  row_number() over( order by price desc ) num, car_option, hiredate,
+ (select model from car_maker where model='현대') maker
+from car_model
+order by price desc )
+where num between 2 and 5;
