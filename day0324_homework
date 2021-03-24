@@ -1,0 +1,44 @@
+-- 숙제1
+select * from DEPT;
+
+create table work_table(
+   num number,
+   id varchar2(30),
+   name varchar2(30),
+   constraint work_table primary key( name, age ),
+   age number,
+   deptno number,
+   phone varchar2(13) constraint phone unique,
+   zipcode number,
+   juso varchar2(100),
+   constraint deptno foreign key(deptno) references dept(deptno)
+	);
+
+select * from WORK_TABLE;
+
+-- 숙제2
+-- 제약사항을 만족하는 쿼리
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm','르르','22','','010-1234-5678','','');
+
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm1','르르','23','','010-1234-5679','12345','서울시 강남구 삼성동');
+
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm1','김르르','23','','010-1234-5670','12345','서울시 강남구 삼성동');
+
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm1','이르르','21','','010-1234-5671','12345','서울시 강남구 삼성동');
+
+-- 제약사항을 만족하지 않는 쿼리
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm1','르르','22','','010-1234-5678','','');
+
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm','르르','23','','010-1234-5678','','');
+
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm','르르','22','','010-1234-5678','12345','서울시 강남구 삼성동');
+
+insert into work_table(num, id, name, age, deptno, phone, zipcode, juso)
+values( 5,'fmfm1','르르','23','','010-1234-5678','12345','서울시 강남구 삼성동');
