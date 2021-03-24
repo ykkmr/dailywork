@@ -101,3 +101,6 @@ values(1000, '마우스','',
 '손목을 보호하기 위해 손의 각도를 계산하여 제작한 제품으로 어차피 insert 안됨');
 
 select * from primary_multi;
+-- primary key를 설정하면 uniqye index가 자동생성
+-- index를 확인하는 Data Dictionary는 user_indexes
+select * from user_indexes;
