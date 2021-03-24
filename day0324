@@ -50,3 +50,54 @@ insert into primary_table(name, phone, id) values('진재혁','010-1234-4321','j
 select * from primary_table;
 
 select * from user_constraints;
+
+----------------- 여러개의 컬럼이 하나의 PK로 구성
+-- 아이템 번호, 아이템 명, 생산일자, 설명
+
+create table primary_multi(
+   item_num number(4),
+   name varchar2(60),
+   item_date char(8),
+	 info_info clob ,
+	 constraint pk_primary_multi primary key( item_num, item_date )
+);
+
+alter table primary_multi rename column info_info to item_info;
+select * from user_constraints
+where table_name ='PRIMARY_MULTI';
+
+-- 추가 성공
+-- 최초데이터입력
+insert into primary_multi(item_num, name, item_date, item_info)
+values(1000, '키보드','20210301',
+'멤브레인 방식으로 저렴이 키보드. 반발력이 떨어짐');
+
+-- 아이템 번호와 제작일이 다르면 입력성공.
+insert into primary_multi(item_num, name, item_date, item_info)
+values(1000, '키보드','20210302',
+'멤브레인 방식으로 저렴이 키보드. 반발력이 떨어짐');
+
+insert into primary_multi(item_num, name, item_date, item_info)
+values(1000, '키보드','20210303',
+'멤브레인 방식으로 저렴이 키보드. 반발력이 떨어짐');
+-- 아이템번호와 날짜가 다르면 입력가능.
+insert into primary_multi(item_num, name, item_date, item_info)
+values(1001, '키보드','20210301',
+'기계식 키보드로 청축,흑축,적축,갈축이 있으며, 취향에 따라 원하는 키 선택 가능');
+
+-- 에러
+-- 아이템번호와 생산일자가 같은 경우
+insert into primary_multi(item_num, name, item_date, item_info)
+values(1000, '마우스','20210301',
+'손목을 보호하기 위해 손의 각도를 계산하여 제작한 제품으로 어차피 insert 안됨');
+-- null 이 입력되면 error
+
+insert into primary_multi(item_num, name, item_date, item_info)
+values('마우스','20210301',
+'손목을 보호하기 위해 손의 각도를 계산하여 제작한 제품으로 어차피 insert 안됨');
+
+insert into primary_multi(item_num, name, item_date, item_info)
+values(1000, '마우스','',
+'손목을 보호하기 위해 손의 각도를 계산하여 제작한 제품으로 어차피 insert 안됨');
+
+select * from primary_multi;
