@@ -1,0 +1,34 @@
+-- 숙제1
+--   1111,강인섭,사원,2800,7902,추가시점의 일자
+--   1112,김덕영,사원,2800,7902,추가시점의 일자
+--   1113,박기범,대리,3200,7893,추가시점의 일자
+
+select * from CP_TABLE2;
+
+insert into cp_table2(empno, ename, job, sal, mgr, hiredate)
+values(1111,'강인섭','사원',2800,7902,sysdate);
+
+insert into cp_table2(empno, ename, job, sal, mgr, hiredate)
+values(1112,'김덕영','사원',2800,7902,sysdate);
+
+insert into cp_table2(empno, ename, job, sal, mgr, hiredate)
+values(1113,'박기범','대리',3200,7893,sysdate);
+
+-- 숙제 2
+--본사의 모든 사원과 지사의 모든 사원을 대상으로 마지막에 입사한 사원부터
+--   정렬했을때 3~10번째 레코드를 조회하세요.
+--
+--  조회컬럼은 사원번호 사원명,직무,연봉,입사일을 조회합니다.
+--    단, 입사일은 년-월-일 분기의 형식으로 출력하고 ,
+--       연봉은 9자리로 맞추되 3자리마다,를 넣어 출력합니다
+select rnum, empno, ename, job, sal, hiredate
+from  (
+	select rownum rnum, empno, ename, job, sal, hiredate
+	from (
+			select empno, ename, job, to_char(sal,'9,999,999') sal, to_char(hiredate, 'yyyy-mm-dd q')hiredate
+			from   cp_table2
+			union  all
+			select empno, ename, job, to_char(sal,'9,999,999') sal , to_char(hiredate, 'yyyy-mm-dd q')hiredate
+			from   emp
+			order by hiredate desc) )
+where rnum between 3 and 10;
