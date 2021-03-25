@@ -38,3 +38,4 @@ where  deptno=10
 union all
 select empno, ename, job, sal
 from   cp_emp1;
+
