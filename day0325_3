@@ -1,0 +1,40 @@
+- 계정관리
+
+-- 계정생성
+-- oracle 12c부터는 계정명 앞에 ##이 붙어서 만들어진다
+-- ##을 사용하지 않는 계정을 생성하려면 _ORACLE_SCRIPT를 사용하면 된다
+alter session set "_ORACLE_SCRIPT"=true;
+
+create user fmfm identified by 1234;
+
+select * from dba_users --> DD(Data Dictionary)
+where username='FMFM';
+
+-- 생성된 계정에 권한 부여
+-- 접속권한 : connect, 테이블 사용권한 : resource, DBA 권한 : dba
+-- 뷰생성권한 : create view, 시노님 생성권한 : create synonym ...
+
+-- 권한부여 : grant
+-- grant
+grant connect to fmfm;
+-- tablespace 사용권한 : table 생성, 사용가능 Oracle 11g 까지
+grant resource to fmfm;
+
+-- 특정 tablespace의 사용설정 Oracle 12c~ 부터
+alter user fmfm default tablespace users quota unlimited on users;
+
+-- 계정에 부여된 권한 조회 : dba_role_privs
+select * from dba_role_privs
+where grantee='FMFM';
+
+-- 권한회수
+-- 생성된 계정에 접속권한 회수
+revoke connect from fmfm;
+
+-- 계정 잠그기
+select * from dba_users;
+
+alter user fmfm account unlock;
+
+-- 계정삭제
+drop user fmfm cascade;
