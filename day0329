@@ -32,6 +32,8 @@ name varchar2(30),
 age number(3)
 );
 
+alter table use_seq add num1 char(10);
+
 -- 시퀀스를 사용한 번호추가
 insert into use_seq(num, name, age) values(seq_test.nextval,'이하늘',20);
 insert into use_seq(num, name, age) values(seq_test.nextval,'한상민',21);
@@ -47,3 +49,56 @@ insert into use_seq(num, name, age) values(seq_test.nextval,'이예림',20);
 insert into use_seq(num, name, age) values( (select max(num)+1 from use_seq),'진재혁',26);
 
 select * from use_seq;
+
+-- 10~9000000 까지 10씩 증가하는 시퀀스를 생성
+create sequence seq_test1
+increment by 10
+start with 10
+maxvalue 9000000
+cycle;
+
+select * from user_sequences;
+
+select seq_test1.nextval from dual;
+
+select seq_test.nextval from dual;
+
+-- num1컬럼에는 insert 할 때마다 'I_00000001', 'I_00000002' 처럼 고정길이에
+-- 1씩 증가하는 문자열 값으로 추가
+-- concat 은 insert 문 안에서 select 의 sebquey로 사용할 수 없다
+insert into use_seq(num, name, age, num1) values( (select max(num)+1 from use_seq),'강인섭',26,
+        concat('I_',pad(seq_test.nextval,8,0) from dual) );
+
+return char
+is temp_num varhchar2(10);
+
+drop sequence seq_test1; /*seq_test*/
+drop sequence seq_test;
+
+select * from user_sequences;
+select * from user_objects;
+
+select * from dba_sys_privs
+where grantee='SCOTT';
+
+-- scott계정에 시노님 권한 부여
+grant create synonym to scott;
+
+-- scott계정에 시노님 권한 회수
+revoke create synonym from scott;
+
+-- 시노님 생성
+-- car_model 테이블에 cmo 라는 이름의 synonym을 부여
+create synonym cmo for car_model;
+
+-- synonym을 조회하는 Data Dictionary
+select * from user_synonyms;
+
+-- synonym명 사용
+select * from cmo;
+
+-- 실제 테이블명 사용
+select * from car_model;
+
+-- 시노님 삭제
+drop synonym cmo;
