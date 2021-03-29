@@ -1,0 +1,108 @@
+------------------------------------view--------------------------------------------
+select * from user_views;
+
+grant create view to scott;
+revoke create view from scott;
+
+select * from dba_sys_privs
+where grantee='SCOTT';
+
+-- 단순 뷰. cp_emp4테이블을 사용한 단순 뷰 생성 : 뷰명 view_emp
+
+create view view_emp
+as select * from cp_emp4;
+
+
+select * from user_views;
+
+-- view 를 사용한 조회
+select * from view_emp;
+-- 살제 테이블 조회
+select * from cp_emp4;
+
+
+-- 실제 테이블에 작업을 하면 view에 바로 반영된다
+insert into cp_emp4(empno, ename, deptno, job, hiredate)
+values (1234,'박기범',10,'직무',sysdate);
+
+select * from view_emp;
+
+update cp_emp4
+set    deptno=20, job='대리'
+where  empno=1234;
+
+delete from cp_emp4 where empno=1234;
+
+-- 단순 View 작업
+-- insert
+insert into view_emp(empno, ename, deptno, job, hiredate)
+values (1234,'박기범',10,'직무',sysdate);
+
+select * from view_emp;
+
+-- update
+update view_emp
+set    deptno=20, job='대리'
+where  empno=1234;
+
+-- delete
+delete from view_emp where empno=1234;
+
+-- 실제 테이블 조회
+select * from cp_emp4;
+
+-- view 삭제
+drop view view_emp;
+
+select * from user_views;
+
+-- 복합 뷰 : 여러개의 테이블로 도출된 뷰
+create table cp_dept as select * from dept;
+-- cp_dept테이블의 부서번호 컬럼 PK설정
+alter table cp_dept add constraint pk_cp_dept primary key(deptno);
+-- cp_emp4테이블의 deptno컬럼에 FK를 설정
+alter table cp_emp4 add constraint fk_cp_emp4_deptno foreign key(deptno)
+references cp_dept(deptno);
+
+select * from user_constraints
+where table_name in('CP_DEPT','CP_EMP4');
+
+-- join을 사용한 복합 뷰의 생성
+create view emp_data as
+select cd.deptno, cd.dname, cd.loc, ce4.empno, ce4.ename, ce4.job, ce4.hiredate
+from   cp_dept cd, cp_emp4 ce4
+where  ce4.deptno(+)=cd.deptno;
+
+select * from user_views;
+
+-- view의 조회 : 단순 쿼리로 join의 결과를 사용할 수 있다
+select * from emp_data;
+
+select  deptno, dname, empno, job
+from    emp_data
+where   deptno in (20, 30);
+
+-- 실제테이블에 부서정보 추가
+insert into cp_dept(deptno, dname, loc) values(50, '개발부', '서울');
+commit;
+
+insert into cp_emp4(empno, ename, deptno, job, hiredate)
+values(1111, '곽범수', 50, '대리', sysdate);
+-- view의 조회 : 추가된 정보는 View에 바로 반영됨
+select * from emp_Data;
+
+-- 복합 뷰에 insert, update, delete 작업 수행
+-- insert X
+insert into emp_data(deptno, dname, loc, empno, ename, job, hiredate)
+values(60,'유지보수','대구',1212,'김덕영','사장',sysdate);
+
+-- update X
+update emp_data
+set    job='대표'
+where  empno=1111;
+
+-- delete X
+delete from emp_data where empno=1111;
+
+-- 뷰 삭제
+drop view emp_data;
