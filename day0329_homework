@@ -13,16 +13,12 @@ start with 1
 maxvalue 9999999;
 
 create view emp_view as
-select d.deptno, d.dname, d.loc, e.empno, e.ename, e.sal, nvl(e.comm,100) comm, hiredate,
-      z.zipcode, z.sido, z.gugun, z.dong, z.bunji
+select d.deptno, d.dname, d.loc, e.empno, e.ename, e.sal, nvl(e.comm,100) comm, row_number() over(order by hiredate) r_hiredate,
+hiredate, z.zipcode, z.sido, z.gugun, z.dong, z.bunji
 from   dept d, emp e, zipcode z
 where  d.deptno = e.deptno and e.empno =z.seq
 order by hiredate;
 
-
---update  emp_view
---set     row_number() over( order by hiredate) hiredate
---where   hiredate;
 
 --숙제 2.
 --  숙제 1에서 생성된 view를 사용하여 모두 조회 해보세요.
@@ -32,10 +28,7 @@ order by hiredate;
 --숙제 3.
 --   생성된 view를 사용하여  생성된 번호를 기준으로 10~20번째 레코드의 모든 컬럼을 조회하세요.
 select deptno, dname, loc, empno, ename, sal,comm, r_hiredate, hiredate, zipcode, sido,gugun, dong, bunji
-from (
-			select deptno,dname, loc, empno, ename, sal, comm, row_number() over(order by hiredate) r_hiredate,
-			       hiredate, zipcode, sido, gugun, dong, bunji
-			from   emp_view )
+from emp_view
 where r_hiredate between 10 and 20;
 
 
