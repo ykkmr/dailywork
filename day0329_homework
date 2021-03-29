@@ -1,0 +1,49 @@
+/*
+숙제 1.
+모든 부서에 근무하는 사원의 증가하는 번호, 부서번호, 부서명,위치,사원번호,사원명,연봉,
+ 보너스, 입사일, 우편번호,시도,구군,동, 번지를 조회하여 'emp_view' 라는 이름의 view를 생성하세요.
+단, 입사일의 오름차순으로 정렬하는 view를 생성하고 번호는 정렬한 순서 부터 1을 부여한다.
+보너스가 존재하지 않으면 100으로 설정하여 view를 생성 할 것.
+*/
+select * from user_sequences;
+
+create sequence seq_emp
+increment by 1
+start with 1
+maxvalue 9999999;
+
+create view emp_view as
+select d.deptno, d.dname, d.loc, e.empno, e.ename, e.sal, nvl(e.comm,100) comm, hiredate,
+      z.zipcode, z.sido, z.gugun, z.dong, z.bunji
+from   dept d, emp e, zipcode z
+where  d.deptno = e.deptno and e.empno =z.seq
+order by hiredate;
+
+
+--update  emp_view
+--set     row_number() over( order by hiredate) hiredate
+--where   hiredate;
+
+--숙제 2.
+--  숙제 1에서 생성된 view를 사용하여 모두 조회 해보세요.
+ select * from emp_view;
+ select * from user_views;
+
+--숙제 3.
+--   생성된 view를 사용하여  생성된 번호를 기준으로 10~20번째 레코드의 모든 컬럼을 조회하세요.
+select deptno, dname, loc, empno, ename, sal,comm, r_hiredate, hiredate, zipcode, sido,gugun, dong, bunji
+from (
+			select deptno,dname, loc, empno, ename, sal, comm, row_number() over(order by hiredate) r_hiredate,
+			       hiredate, zipcode, sido, gugun, dong, bunji
+			from   emp_view )
+where r_hiredate between 10 and 20;
+
+
+-- 숙제 4.
+--   생성된 view를 삭제해보세요.
+drop view emp_view;
+
+--숙제5.
+--  scott에서 부여된 view권한과 synonum 권한을 회수하세요.
+ grant create synonym to scott;
+ revoke create synonym from scott;
