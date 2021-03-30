@@ -1,0 +1,45 @@
+/*숙제 1.
+하루 용돈, 교통비, 점심값을 변수에 저장하고 아래와 같은형식으로 출력하는 PL/SQL작성하세요.
+하루용돈 XX원, 편도교통비 : xx 원, 왕복교통비 : xx원, 점심값 : xx원 남은 용돈xx 원입니다.
+ */
+set serveroutput on
+declare
+day_money number(10);
+one_way number(10);
+lunch  number(10);
+
+begin
+	dbms_output.put_line( '하루용돈'|| day_money ||'원, 편도교통비 : '||one_way ||'원,
+	 왕복교통비 :'|| one_way*2 ||'원, 점심값 : '||lunch||'원 남은 용돈'||
+	 day_money - (one_way*2)-lunch ||'원입니다.' );
+
+end;
+/
+/*숙제 2.
+나이를 accept으로 입력받아 태어난 해를 구해서 출력하는 PL/SQL을 작성하세요.
+*/
+set serveroutput on
+
+accept age prompt '나이 : ';
+
+declare
+age number(3);
+birth number(5);
+
+begin
+
+birth := 2021-age+1;
+	dbms_output.put_line( birth||'년생' );
+end;
+/
+
+/*숙제 3.
+ 사원테이블에서 근속년수가 35년 이상인 사원 들의 사원번호,사원명, 입사일, 근속년수, 연봉을 조회하세요.
+ 단, 입사일의 내림차순으로 정렬하여 출력하고, 입사일은 ‘월-일-년 요일’ 의 형식으로 출력하세요.
+*/
+
+select  empno, ename, to_char(hiredate,'mm-dd-yyyy day') hiredate,
+        trunc(months_between(sysdate, hiredate)/12, 0) years, sal
+from    emp
+where  trunc(months_between(sysdate, hiredate), 0) >= 35*12
+order by hiredate desc;
