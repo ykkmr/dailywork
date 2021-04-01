@@ -18,8 +18,11 @@ set verify off
 
 
 declare
+	-- 테스트용 주민번호 : 121212-1234567 유효 로나옴
   ssn char(14) := '121212-1234567';
+  -- checksum code : 2,3,4,5,6,7,8,9,2,3,4,5
   ssn_flag number := 2;
+  -- 주민번호에 체크코드를 연산한 결과를 저장할 변수
   ssn_oper number := 0;
 begin
 
@@ -27,21 +30,31 @@ begin
 
    if instr( ssn, '-' ) =7 then
      -- 14자리이면서 7번째 자리에 - 이 존재
+     -- 1~13자리까지 주민번호를 하나씩 잘라내서 check code와 연산하기위한 반복문
      for i in 1 .. length(ssn)-1 loop
+     -- 7번째 자리는 - 이기 때문에 연산하지 않는다
    		 if i !=7 then
+   		 -- 주민번호의 각 자리를 한자씩 잘라서 checksum 코드와 곱한 후 결과를 더해
+   		 -- 변수에 저장한다
    		 ssn_oper := ssn_oper + substr(ssn,i,1) * ssn_flag;
 			 	-- ssn_oper := ssn_oper + substr(ssn,i,1) * ssn_flag;
 --         dbms_output.put_line(ssn_oper);
+
+				-- checksum code를 1씩 증가시킨다
    			ssn_flag := ssn_flag+1;
+   			-- checksum code가 9부터는 2로 초기화 되어야한다
    			if ssn_flag = 10 then
    			ssn_flag := 2;
    			end if;
 
 			end if;
      end loop;
-
+     -- 위에서 연산한 결과를 11로 나눈 나머지를 얻고, 11에서 나머지를 빼고,
+     -- 10으로 나눈 나머지를 얻는다
      ssn_oper := mod(11- mod(ssn_oper, 11),10);
 
+		 -- 주민번호의 가장 마지막 숫자는 검증용이므로 위에서 연산된 결과와
+		 -- 같다면 유효한 주민번호이고, 그렇지 않다면 잘못된 주민번호이다.
      if substr(ssn,14,1) = ssn_oper then
    	 dbms_output.put_line('유효');
 			else
