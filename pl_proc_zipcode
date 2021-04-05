@@ -1,0 +1,32 @@
+-- 동을 입력받아 우편번호, 시도, 구군, 동, 번지를 출력하는 PL/SQL
+create or replace procedure proc_zipcode(dong varchar2, cur_zip out sys_refcursor)
+is
+
+i_dong varchar2(100) := dong;
+begin
+-- 동이 입력되지 않으면
+if i_dong is null then
+   i_dong := '상도동';
+end if;
+
+--커서 열기
+	open cur_zip for
+		select zipcode, sido, gugun, dong, bunji
+		from   zipcode
+		where  dong like i_dong||'%';
+
+end;
+/
+
+-----------------------------------------------------------------------------------------
+-- 동 조회
+-- 커서를 저장할 수 있는 데이터형을 사용하여 bind 변수 선언
+var cur_zip refcursor;
+
+-- 실행
+exec proc_zipcode('역삼1동', :cur_zip );
+
+-- 출력
+print cur_zip;
+
+
