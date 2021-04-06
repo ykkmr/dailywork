@@ -1,0 +1,15 @@
+--패키지 header 선언
+-- 함수 : 나이를 입력받아서 태어난 해를 반환하는 함수
+-- 프로시저 : 번호를 입력받아 제조국,제조사,모델면,연식,가격,옵션 조회
+-- 단 조회는 입력일의 내림차순, 번호가 1번 입력되면 1~10사이
+-- 2번 11~20 ,3번 21~30 사이 레코드 조회
+
+create or replace package test_pack
+is
+	 -- 나이를 입력받아 태어난 해를 반환하는 함수
+	function birth(age number) return number;
+	 -- 위의 정의된 일을 하는 프로시저
+	procedure car_list( num number, car_data out sys_refcursor );
+
+end;
+/
