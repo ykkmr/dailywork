@@ -1,4 +1,7 @@
-*쿼리문에 대한 작업만 정의
+package day0407;
+/**
+ *DBMS의 작업에 관련된 코드를 정의하는 클래스
+ *쿼리문에 대한 작업만 정의
  * @author user
  */
 
@@ -62,15 +65,93 @@ public class StatementDAO {
 	 * 변경하는 일
 	 * @param eVO 변경할 사원정보
 	 * @return 변경된 행의 수 
+	 * @throws SQLException 
 	 */
-	public int updateCpEmp4(EmpVO eVO) {
+	public int updateCpEmp4(EmpVO eVO) throws SQLException {
 		int cnt = 0;
-		
+		Connection con = null;
+		Statement stmt = null;
+		//1. 드라이버로딩
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}//end catch	
+		try {
+		//2. Connection얻기
+			String url="jdbc:oracle:thin:@localhost:1521:orcl";
+			String id="scott";
+			String pass="tiger";
+			
+			con=DriverManager.getConnection(url,id,pass);
+			
+		//3. 쿼리문 생성객체 얻기
+			stmt=con.createStatement();
+		//4. 쿼리문 수행 후 결과 얻기
+//			String updateCpEmp="update cp_emp4 set ename='"+eVO.getEname()
+//			+"',deptno="+eVO.getDeptno()+",job='"+eVO.getJob()+"' where empno="+
+//					eVO.getEmpno();
+			StringBuilder updateCpEmp = new StringBuilder();
+			updateCpEmp
+			.append("update cp_emp4 ")
+			.append(" set ename='").append(eVO.getEname())
+			.append("',deptno=").append(eVO.getDeptno()).append(",job='").append(eVO.getJob())
+			.append("' where empno=").append(eVO.getEmpno());
+			System.out.println(updateCpEmp);
+			cnt=stmt.executeUpdate(updateCpEmp.toString());
+			
+		}finally {
+			//5. 연결 종료
+			if(stmt != null ) { stmt.close(); }//end if
+			if(con != null ) { con.close(); }//end if
+		}//end if
 		return cnt;
 	}//updateCpEmp4
 
-	public int deleteCpEmp4(int empno) {
+	public int deleteCpEmp4(EmpVO eVO) throws SQLException {
 		int cnt = 0;
+		Connection con = null;
+		Statement stmt = null;
+		// --------------------------------------나 혼자한 영역------------------------------------------------------	
+		//1. 드라이버로딩
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		
+		try {
+		//2. Connection 얻기
+		String url ="jdbc:oracle:thin:@localhost:1521:orcl";
+		String id = "scott";
+		String pass = "tiger";
+		
+			con = DriverManager.getConnection(url, id, pass);
+		//3. 쿼리문 생성객체 얻기
+		stmt = con.createStatement();
+		
+		//4. 쿼리문 수행 후 결과 얻기
+		StringBuilder deleteCpEmp = new StringBuilder();
+		deleteCpEmp
+		.append("delete cp_emp4 ")
+		.append(" set ename ='").append(eVO.getEname())
+		.append("', deptno =").append(eVO.getDeptno()).append(", job ='").append(eVO.getJob())
+		.append("' where empno =").append(eVO.getEmpno());
+		System.out.println(deleteCpEmp);
+		cnt=stmt.executeUpdate(deleteCpEmp.toString());
+		
+		System.out.println(cnt + "건 삭제");
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			//5. 연결 끊기
+			if(stmt != null) {stmt.close();}
+			if(con != null) {con.close();}
+		}//end finally
+			
+	// --------------------------------------나 혼자한 영역------------------------------------------------------		
+		
 		
 		return cnt;
 	}//deleteCpEmp4
@@ -90,7 +171,7 @@ public class StatementDAO {
 	public static void main(String[] args) {
 		StatementDAO s = new StatementDAO();
 //		try {
-//		s.insertCpEmp4(new EmpVO(1212,"테스트",10,"대리"));
+//			s.updateCpEmp4(new EmpVO(1212,"김사원",20,"대리"));
 //		}catch(SQLException e) {
 //			e.printStackTrace();
 //		}//end catch
