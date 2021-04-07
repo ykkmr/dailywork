@@ -39,11 +39,41 @@ public class UseStatementDAO {
 	}//addCpEmp
 	
 	private void modifyCpEmp() {
+		EmpVO eVO = new EmpVO(432, "조혜원",30,"차장");
+		try {
+			int cnt =sDAO.updateCpEmp4(eVO);
+			String msg=eVO.getEmpno()+"번 사원은 존재하지 않습니다";
+			if(cnt == 1) {
+				msg=eVO.getEmpno()+"번 사원정보가 변경되었습니다";
+			}//end if
+			
+			JOptionPane.showMessageDialog(null, msg);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "서비스가 원활하지 못한점 ㅈㅅ!");
+		}//end catch
+		
 		
 	}//modifyCpEmp
 	
 	private void removeCpEmp() {
-		
+		// --------------------------------------나 혼자한 영역------------------------------------------------------	
+		EmpVO eVO = new EmpVO(431, "조혜원",30,"차장");
+		try {
+			int cnt =sDAO.deleteCpEmp4(eVO);
+			String msg=eVO.getEmpno()+"번 사원은 존재하지 않습니다";
+			if(cnt == 1) {
+				msg=eVO.getEmpno()+"번 사원정보가 변경되었습니다";
+			}//end if
+			
+			JOptionPane.showMessageDialog(null, msg);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "서비스가 원활하지 못한점 ㅈㅅ!");
+		}//end catch
+		// --------------------------------------나 혼자한 영역------------------------------------------------------	
 	}//removeCpEmp
 	
 	private void searchAllCpEmp() {
@@ -56,7 +86,8 @@ public class UseStatementDAO {
 	
 	public static void main(String[] args) {
 		UseStatementDAO usDAO = new UseStatementDAO();
-		usDAO.addCpEmp();
+//		usDAO.addCpEmp();
+		usDAO.modifyCpEmp();
 	}//main
 
 }//class
