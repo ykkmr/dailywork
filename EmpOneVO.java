@@ -1,17 +1,19 @@
 package day0407;
 
+import java.sql.Date;
+
 public class EmpOneVO {
 	private String ename;
 	private int deptno;
 	private String job;
-	private String hiredate;
+	private Date hiredate; //조회할 때 Oracle의 date형을 저장하기 위해 java.sql.Date 클래스 사용
 	
 	
 	public EmpOneVO() {
 	}
 
 
-	public EmpOneVO(String ename, int deptno, String job, String hiredate) {
+	public EmpOneVO(String ename, int deptno, String job, Date hiredate) {
 		super();
 		this.ename = ename;
 		this.deptno = deptno;
@@ -50,15 +52,16 @@ public class EmpOneVO {
 	}
 
 
-	public String getHiredate() {
+	public Date getHiredate() {
 		return hiredate;
 	}
 
 
-	public void setHiredate(String hiredate) {
+	public void setHiredate(Date hiredate) {
 		this.hiredate = hiredate;
 	}
-	
+
+
 	
 
 }
