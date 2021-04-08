@@ -1,6 +1,8 @@
 package day0407;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -58,36 +60,75 @@ public class UseStatementDAO {
 	}//modifyCpEmp
 	
 	private void removeCpEmp() {
-		// --------------------------------------나 혼자한 영역------------------------------------------------------	
-		EmpVO eVO = new EmpVO(431, "조혜원",30,"차장");
+		int empno = 7499;
+		
 		try {
-			int cnt =sDAO.deleteCpEmp4(eVO);
-			String msg=eVO.getEmpno()+"번 사원은 존재하지 않습니다";
-			if(cnt == 1) {
-				msg=eVO.getEmpno()+"번 사원정보가 변경되었습니다";
-			}//end if
-			
-			JOptionPane.showMessageDialog(null, msg);
-			
-		} catch (SQLException e) {
+				int cnt=sDAO.deleteCpEmp4(empno);
+				StringBuilder resultMsg=new StringBuilder();
+				resultMsg.append(empno);
+				if( cnt == 1) {
+					resultMsg.append("번 사원정보가 삭제되었습니다");
+				}else {
+					resultMsg.append("번 사원정보가 존재하지 않습니다");
+					
+				}//end else
+				JOptionPane.showMessageDialog(null, resultMsg);
+		}catch(SQLException e){
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "서비스가 원활하지 못한점 ㅈㅅ!");
+			//ㅝ리문 잘못된 경우. DB와 연동 안되는 경우
+			JOptionPane.showMessageDialog(null, "서비스가 원활하지 못한 점 죄송합니다");
 		}//end catch
-		// --------------------------------------나 혼자한 영역------------------------------------------------------	
 	}//removeCpEmp
 	
 	private void searchAllCpEmp() {
+		//조회된 결과가 하나의 List에 모두 저장되어있으므로 List를 받아서 사용한다
+		try {
+			List<EmpAllVO> list = sDAO.selectAllCpEmp4();
+			
+			if(list.isEmpty()) {
+				System.out.println("사원정보 존재 x");
+			}//end if
+			
+			EmpAllVO eaVO = null;
+			for(int i = 0; i < list.size() ; i ++) {
+				eaVO = list.get(i);
+				System.out.println( eaVO.getEmpno()+ "/ "+ eaVO.getEname() + "/ " +eaVO.getDeptno() +
+						"/ "+	eaVO.getJob()+ "/ " + eaVO.getHiredate());
+			}//end for
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}//end catch
 		
 	}//searchAllCpEmp
 	
 	private void searchOneCpEmp() {
+		
+		int empno = 1234;
+		try {
+			EmpOneVO eoVO = sDAO.selectOneCpEmp4(empno);
+			
+			if( eoVO == null ) {//사원번호로 조회된 레코드가 없음
+				System.out.println(empno +"번 사원은 존재하지 않습니다");
+			}else {//사원번호로 조회된 레코드 있음
+				SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yy EEEE");
+				System.out.println(eoVO.getEname()+"/"+eoVO.getDeptno()+"/"+eoVO.getJob()+
+						"/"+sdf.format(eoVO.getHiredate()));
+			}//end else
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}//end catch
+	
 		
 	}//searchOneCpEmp
 	
 	public static void main(String[] args) {
 		UseStatementDAO usDAO = new UseStatementDAO();
 //		usDAO.addCpEmp();
-		usDAO.modifyCpEmp();
+//		usDAO.modifyCpEmp();
+//		usDAO.removeCpEmp();
+//		usDAO.searchAllCpEmp();
+		usDAO.searchOneCpEmp();
 	}//main
 
 }//class
