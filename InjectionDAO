@@ -1,0 +1,49 @@
+package day0414;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import kr.co.sist.dao.DbConnection;
+
+public class InjectionDAO {
+
+	public String StatementLogin(String id, String pass)throws SQLException {
+		String name = "";
+		
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		DbConnection dc = DbConnection.getInstance();
+		
+		//1.
+		try {
+		//2.
+			con=dc.getConnection();
+		//3.
+			stmt=con.createStatement();
+		//4.
+			StringBuilder selectQuery = new StringBuilder();
+			selectQuery
+			.append("	select	name				")
+			.append("	from		injection_test	")
+			.append("	where	id='").append(id).append("' and pass='").append(pass).append("'");
+			
+			System.out.println(selectQuery.toString());
+			rs=stmt.executeQuery(selectQuery.toString());
+			
+			if( rs.next() ) {//입력한 id와 pass에 일치하는 레코드가 존재
+				name=rs.getString("name");
+			}//end if
+			
+		}finally {
+		//5.
+			if(rs != null) {rs.close();}//end if
+			if(stmt != null) {stmt.close();}//end if
+			if(con != null) {con.close();}//end if
+		}//end finally
+		return name;
+	
+	}//StatementLogin
+}//class
