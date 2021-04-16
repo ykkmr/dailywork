@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>줄변경</title>
+</head>
+<body>
+
+안녕<br/><br/>하세요?
+<p>
+오늘은 목요일 입니다
+</p>
+<p>
+HTML은 웹 프로그래밍에서 구조를 담당하고, <br/>CSS는 통일성 있는 디자인을 담당하고,<br/>
+JavaScript은 연산, 유효성검증, 동적인 화면 변환을 담당한다.
+</p>
+<p>
+HTML은 Hyper Text Markup Language로 1995년에 Tim, Berners Lee가 초안 만들고<br/> IETF가 2.0
+표준안을 설정하여 발표하였다. <br/>그 후 W3(World Wide Web Consortium)에서 표준안을 제정하고
+관리한다.
+</p>
+</body>
+</html>
