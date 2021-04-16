@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마크업 효과</title>
+</head>
+<body>
+<!-- <b> 나 <strong>은 브라우저에서 진하게 표현하지만, <b>는 논리적인 의미가 담겨있지않고,
+	<strong>은 논리적인 의미가 담겨있다
+	읽기 기능을 사용한다면 <b>는 일반 글자처럼 읽으나, <strong>은 강하게 읽는다
+	 -->
+<!-- ctrl+shift+slash -->
+진하게 : 오늘은 <b>목요일</b> 입니다. <br/> 
+진하게 : 오늘은 <strong>목요일</strong> 입니다. <br/>
+글자 크게 : 일반글자 <big>큰글자</big><br/>
+글자 작게 : 일반글자 <small>작은 글자</small><br/>
+밑 줄 : 오늘은 <u>목요일</u> 입니다 <br/>
+이탤릭 : 오늘은 <i>목요일</i> 입니다 <br/>
+취소선 : 오늘은 <strike>금요일</strike> 목요일입니다 <br/>
+형광펜 : 오늘은 <mark>목요일</mark> 입니다<br/>
+윗첨자 : 자바언어의 int 데이터 형 범위는 -2<sup>31</sup>~2<sup>31</sup>-1;<br/>
+아랫첨자 : 물의 화학기호는 H<sub>2</sub>O<br/>
+1조 조장 <mark><strong><i><big>한상민</big></i></strong></mark> ㄷㄷㄷㅈ<br/>
+
+<a href="#"><font color="#333333">아아ㅏ아아아아</font></a>
+
+</body>
+</html>
