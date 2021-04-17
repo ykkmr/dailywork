@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성이 있는 태그</title>
+</head>
+<body>
+일반글자 : <font>안녕하세요?</font> <br/>
+글꼴 : <font face = "궁서체">안녕하세요?</font><br/>
+색 : <font color = "green">안녕하세요?</font><br/>
+색 : <font color = "#00FF00">안녕하세요?</font><br/>
+크기 : <font size = "1">안녕하세요?</font><br/>
+크기 : <font size = "5">안녕하세요?</font><br/>
+크기 : <font size = "10">안녕하세요?</font><br/>
+크기 : <font size = "100">안녕하세요?</font><br/>
+<font size = "6" face = "궁서체" color = "B4CFB0">안녕하세요?</font><br/>
+
+</body>
+</html>
