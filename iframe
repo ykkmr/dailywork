@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iframe</title>
+</head>
+<body>
+	외부 HTML
+	 <br/>
+	 <iframe src = "font.html" width = "500" height = "300" frameborder="0" scrolling = "auto"></iframe>
+	 <br/>
+	 외부 HTML
+	 <br/>
+	 <iframe src = "http://sist.co.kr" width = "500" height = "300" frameborder="0" scrolling = "auto"></iframe>
+</body>
+</html>
