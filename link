@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hyper link</title>
+</head>
+<body>
+<strong>상대경로</strong><br/>
+같은 폴더의 파일 : <a href = "image.html" title = "클릭">이미지 연습</a><br/>
+하위 폴더의 파일 : <a href = "sub/image.html">이미지 연습</a><br/>
+다른 폴더의 파일 : <a href = "../day0415/h_tag.html">h tag</a><br/>
+<strong>URL</strong><br/>
+<a href = "http://localhost/html_prj/day0415/new_line.html">줄변경</a><br/>
+<a href = "http://localhost/html_prj/day0416/image.html"><img src = "포챠코1.jpg" border="0" width="80"/>줄변경</a><br/>
+
+</body>
+</html>
