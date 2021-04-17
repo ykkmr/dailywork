@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+절대경로:<br/>
+<img src ="C:\dev\workspace\html_prj\WebContent\day0416\포챠코1.jpg"/>
+상대경로:<br/>
+HTML 파일과 이미지가 같은 경로에 존재 : <br/>
+<img src = "포챠코1.jpg"/><br/>
+HTML 파일과 존재하는 경로의 하위 경로에 이미지가 존재 : <br/>
+<img src = "images/포챠코1.jpg"/><br/>
+HTML 파일과 존재하는 경로의 다른 경로에 이미지가 존재 : <br/>
+<img src = "../common/images/포챠코1.jpg"/><br/>
+
+URL사용 : <br/>
+<img src = "http://localhost/html_prj/common/images/포챠코1.jpg"/><br/>
+</body>
+</html>
