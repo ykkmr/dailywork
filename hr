@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>선 긋기</title>
+</head>
+<body>
+
+<hr/>
+<hr width = "70%" color = "#FF0000" size = "10"/>
+<hr width = "700" color = "#FF0000" size = "10"/>
+</body>
+</html>
