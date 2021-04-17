@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<iframe src = "http://sist.co.kr" width = "500" height = "400" scrolling = "auto" name = "ifr"></iframe>
+<br/>
+<a href ="image2.html" target ="ifr">이미지연습</a>( <a href ="image2.html" target = "blank">새창</a>)
+</body>
+</html>
