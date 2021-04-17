@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<img src = "http://localhost:80/html_prj/day0416/images/seoul.png" usemap="#seoulMap"/>
+<map name="seoulMap"id ="seoulMap">
+	<area shape = "rect" coords = "398,353,425,374" href = "http://www.junggu.seoul.kr/index.html" 
+		target = "_blank" title = "서울의 중심구 중구 " alt ="엑박">
+	<area shape = "rect" coords = "489,473,528,490" href = "https://www.gangnam.go.kr/" 
+		target = "_blank" title = "강남구청 " alt ="엑박">
+	<area shape = "circle" coords = "572,400,20" href = "https://www.gwangjin.go.kr/portal/main/main.do" 
+		target = "_blank" title = "광진구청 " alt ="엑박">
+</map>
+</body>
+</html>
