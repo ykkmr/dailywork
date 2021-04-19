@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>설명목록</title>
+</head>
+<body>
+	<dl>
+	<dt>자바</dt>
+	<dd>완벽한 객체지향 언어</dd>
+	<dt>오라클 DBMS</dt>
+	<dd>대용량 데이터 베이스</dd>
+	<dt>HTML</dt>
+	<dd>웹 페이지에서 구현</dd>
+	</dl>
+</body>
+</html>
