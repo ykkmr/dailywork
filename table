@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블</title>
+</head>
+<body>
+<table border="/" bordercolor = "#000000" width = "400" height = "200"
+	bgcolor = "#FDEAB8" background= "../common/images/포챠코1.jpg" cellspacing = "10"
+	cellpadding = "20" align = "center">
+<tr>
+	<td> 강인섭 </td> <!--  자식태그는 부모태그의 속성을 상속 받는다  -->
+	<td> 곽범수 </td>
+	<td> 현병호 </td>
+</tr>
+<tr>
+	<td> 조혜원 </td>
+	<td> 정은아 </td>
+	<td> 박기범 </td>
+</tr>
+</table>
+</br>
+
+<table border="1" cellspacing = "0" bordercolor = "#333333">
+<tr height = "80" bgcolor = "#DCE4EF" valign = "middle" align = "right">
+	<td>Java SE </td>
+	<td>Oracle DBMS</td>
+</tr>
+<tr height= "40" background = "../common/images/포챠코2.jpg">
+	<td>HTML </td>
+	<td>CSS</td>
+</tr>
+</table>
+
+<hr/>
+
+<table border ="1">
+<tr height = "50">
+	<td width = "80" align = "left">월요일</td>
+	<td width = "50" align = "center">화요일</td> <!--  위의행과 아래행에 같은 width 속성이 있으면 가장 넓은 쪽으로 설정 -->
+	<td width  = "300" align = "right">수요일</td>
+</tr>
+<tr height = "100">
+	<td valign = "top">목요일</td>
+	<td width = "120" valign = "middle">금요일</td>
+	<td valign = "bottom">토요일</td>
+</tr>
+</table>
+</body>
+</html>
