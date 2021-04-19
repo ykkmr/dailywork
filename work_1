@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>입사지원서</title>
+</head>
+<body>
+<strong align = "center"><h1>입사 지원서</h1></strong>
+<table border = "1"  align = "center">
+<tr>
+	<td rowspan ="4" width = "20" height ="300" align = "center">인적사항</td>
+	<td rowspan ="2" align = "center">이름</td>
+	<td width = "100" height ="10" align = "center">한글</td>
+	<td width = "70" height ="10" align = "center">한문</td>
+	<td width = "70" height ="10" align = "center">영문</td>
+	<td rowspan ="4" width = "200" height ="70"  background= "../common/images/포챠코1.jpg" >6</td>
+</tr>
+<tr>
+	<td  width = "70"  height ="30">김르르</td><td  width = "100"  height ="30">金르르</td><td  width = "100"  height ="30">Kim luelue</td>
+</tr>
+<tr>
+	<td width = "70"  height ="40" align = "center"align = "center">주민번호</td><td colspan ="3" >*</td>
+</tr>
+<tr>
+	<td width = "70"  height ="60" align = "center"align = "center">주소</td><td colspan ="3">한국 서울</td>
+</tr>
+</table>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->
+<table border = "1"  align = "center">
+<tr>
+<td rowspan ="2" width = "20" height ="100" align = "center" >인적사항</td>
+<td rowspan ="2" width = "70"align = "center">연락처</td>
+<td width = "170"align = "center">연락처</td>
+<td width = "169"align = "center">E - mail</td>
+<td width = "167"align = "center">취미 / 특기</td>
+</tr>
+<tr>
+<td>010-*4*4-**10</td><td>lleurxx@gmail.com</td><td>편집,노래,게임</td>
+</tr>
+</table>
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->
+<table border = "1"  align = "center">
+<tr>
+<td rowspan ="3" width = "20" height ="100" align = "center" >인적사항</td>
+<td width = "144"  height ="40" align = "center">재학기간</td>
+<td width = "144"  height ="40" align = "center">학교명</td>
+<td width = "144"  height ="40" align = "center">전공</td>
+<td width = "144"  height ="40"  align = "center">소재지</td>
+</tr>
+<tr>
+<td width = "144" height ="50" >비</td>
+<td width = "144" height ="50" >밀</td>
+<td width = "144" height ="50" >이</td>
+<td width = "144" height ="50" >지</td>
+</tr>
+<tr>
+<td width = "144" height ="50" >롱</td>
+<td width = "144" height ="50" >룰</td>
+<td width = "144" height ="50" >룰</td>
+<td width = "144" height ="50" >루</td>
+</tr>
+</table>
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------- -->
+<table border = "1"  align = "center">
+<tr>
+<td rowspan ="6" width = "20" height ="100" align = "center" >인적사항</td>
+<td  colspan ="2"width = "290"  height ="40" align = "center">자격명</td>
+
+<td width = "144"  height ="40" align = "center">취득일</td>
+<td width = "144"  height ="40"  align = "center">발급기관</td>
+</tr>
+<tr>
+<td colspan ="2" width = "290" height ="50" ></td>
+
+<td width = "144" height ="50" ></td>
+<td width = "144" height ="50" ></td>
+</tr>
+<tr>
+<td colspan ="2" width = "290"  height ="50" ></td>
+
+<td width = "144" height ="50" ></td>
+<td width = "144" height ="50" ></td>
+</tr>
+<tr>
+<td colspan ="2" width = "290" height ="50" ></td>
+
+<td width = "144" height ="50" ></td>
+<td width = "144" height ="50" ></td>
+</tr>
+<tr>
+<td colspan ="2" width = "290" height ="50" ></td>
+
+<td width = "144" height ="50" ></td>
+<td width = "144" height ="50" ></td>
+</tr>
+<tr>
+<td colspan ="2" width = "294" height ="50" ></td>
+
+<td width = "144" height ="50" ></td>
+<td width = "144" height ="50" ></td>
+</tr>
+</table>
+
+</body>
+</html>
