@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Markup Language 특수문자</title>
+</head>
+<body>
+<!-- 태그는 < 기호 뒤에 문자열에 대해서는 공백을 넣을 수 없다 > 기호 앞에는 공백을 허용 -->
+&lt;br/&gt; : tag는 줄 변경할 때 사용하는 태그 <br/>
+오늘은&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;월요일 입니다.<br/>
+&amp;nbsp; : 특수문자는 공백을 만들 떄 사용 <br/>
+Copyright&copy; 2021 SSangyong Institute of System Technology, All Right Reserved. <br/>
+오늘은 &quot;월요일&quot; 입니다 <br/>
+</body>
+</html>
