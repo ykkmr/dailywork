@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>도형목록</title>
+</head>
+<body>
+
+<ul>
+	<li>모니터</li>
+	<li>메인보드</li>
+	<li>CPU</li>
+	<li>메모리</li>
+</ul>
+<ul type="circle"><!--  -->
+	<li>Java</li>
+	<li>Oracle</li>
+	<li>HTML</li>
+</ul>
+</body>
+</html>
