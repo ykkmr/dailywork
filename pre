@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 태그를 사용하여 Back-end 로 값 전달 </title>
+</head>
+<body>
+<form method = "get" action = "test.jsp">
+	<fieldset>
+		<legend> Back-end 로 전송하기</legend>
+		<input type = "submit" value ="전송"/>
+	</fieldset>
+</form>
+<form method = "post" action = "test.jsp">
+	<fieldset>
+		<legend> Back-end 로 전송하기</legend>
+		<input type = "submit" value ="전송"/>
+	</fieldset>
+</form>
+</body>
+</html>
