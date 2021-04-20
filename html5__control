@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html5에서 추가된 Form Control들</title>
+</head>
+<body>
+<label>색</label><!-- value는 숫자 RGB로 설정 -->
+<input type = "color" value ="#743F8D"/><br/>
+<label>날짜(일)</label><!-- value는 년-월-일 형식을 맞춰 설정 -->
+<input type = "date" value ="2021-06-29"/><br/>
+<label>날짜(월)</label><!-- value는 년-월 형식을 맞춰 설정 -->
+<input type = "month" value ="2021-06"/><br/>
+<label>날짜(주)</label>
+<input type = "week"/><br/>
+<label>시간</label>
+<input type = "time"/><br/>
+<label>날짜 시간</label>
+<input type = "datetime-local" /><br/>
+<label>숫자</label>
+<input type = "number" value ="1" /><br/>
+<label>범위</label><!-- min : 최소값 max : 최대값 value : 현재값 -->
+<input type = "range" min = "0" value = "80" max = "1000"/><br/>
+<!-- text로 제공되고, 의미적인 Form Control -->
+<label>전화번호</label>
+<input type = "tel" name ="tel" /><br/>
+<label>이메일</label>
+<input type = "email" name ="email" /><br/>
+<label>홈페이지 URL</label>
+<input type = "url" name ="rul" /><br/>
+<label>검색 값</label>
+<input type = "search" name ="rul" /><br/>
+
+</body>
+</html>
