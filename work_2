@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+ <h1><strong>회원가입</strong></h1>
+<form action="test.jsp">
+<label span style="color:red">*</label><label>아이디</label>
+<input type = "text" name ="id"  size = "10" maxlength = "15"/><input type = "button"value="중복확인"/><br/>
+<label span style="color:red">*</label><label>비밀번호</label> 
+<input type = "password" name ="pass" size = "10" maxlength = "15"/><br/>
+<label span style="color:red">*</label><label>비밀번호 확인</label> 
+<input type = "password" name ="pass" size = "10" maxlength = "15"/><br/>
+<label span style="color:red">*</label><label>이름</label>
+<input type = "text" size = "10" maxlength = "15"/><br/>
+<label span style="color:red">*</label><label>주민번호</label>
+<input type = "text"  size = "10" maxlength = "15"/>-<input type = "password" name ="pass" size = "10" maxlength = "15"/><br/>
+<label span style="color:red">*</label><label>성별</label>
+<input type = "radio" name ="gender" value = "M">남자
+<input type = "radio" name ="gender" value = "F" checked = "checked">여자<br/>
+<label span style="color:red">*</label><label>생년원일</label>
+<input type = "text"   size = "4" maxlength = "4"/>-<input type = "text"   size = "2" maxlength = "2"/>-<input type = "text"   size = "2" maxlength = "2"/><br/>
+<label span style="color:red">*</label><label>주소</label>
+<input type = "text" size = "30" maxlength = "15"/><br/>
+<label span style="color:red">*</label><label>우편번호</label>
+<input type = "text" size = "3" maxlength = "15"/><input type = "button"value="우편번호찾기"/><br/>
+<label span style="color:red">*</label><label>상세주소</label>
+<input type = "text" size = "30" maxlength = "15"/><br/>
+<label>이메일</label>
+<input type = "text" size = "10" maxlength = "15"/>@<select name = "domain" size = "1">
+		<option value = "none">--- 도메인을 선택 ---</option>
+		<option value = "daum.net">다음</option>
+		<option value = "naver.com">네이버</option>
+		<option value = "google.com" >지메일</option>
+		<option value = "hotmail.com">핫메일</option>
+</select><input type = "text" size = "10" maxlength = "15" value = "직접입력"/><br/>
+<label>관심언어</label> 
+<input type = "checkbox" name ="c" size = "10" >자바
+<input type = "checkbox" name ="c" size = "10" >HTML
+<input type = "checkbox" name ="c" size = "10" >Visual Basic<br/>
+<input type = "checkbox" name ="c" size = "10" >C/C++
+<input type = "checkbox" name ="c" size = "10" >Python
+<input type = "checkbox" name ="c" size = "10" >ASP<br/>
+<label>가입인사</label><textarea name = "ta" rows= "5" cols="50" ></textarea>
+<br/>
+<input type = "submit"  value="가입" />
+<input type = "reset" value="초기화"/><br/>
+<label span style="color:red">*표는 필수입니다</label>
+</form>
+</body>
+</html>
