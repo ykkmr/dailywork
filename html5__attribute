@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+<tr>
+	<td>
+	<input type = "text" name = "id" size = "15" placeholder = "아이디입력"
+			autofocus ="autofocus" tabindex = "1"/>
+	</td>
+	<td rowspan = "2"><input type = "submit" value = "로그인" tabindex = "3"/></td>
+</tr>
+<tr>
+	<td>
+	<input type = "password" name = "pass" size = "15" placeholder = "비밀번호입력"
+				tabindex = "2"/>
+	</td>
+</tr>
+</table>
+<hr/>
+<!-- <meter value = "90" min = "0" max ="100" >당신의 브라우저는 이 태그를 지원하지 않습니다</meter> -->
+0<meter value = "90" min = "0" max ="100" >현재값은 90입니다</meter>100
+</body>
+</html>
