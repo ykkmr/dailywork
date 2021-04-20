@@ -6,6 +6,7 @@
 </head>
 <body>
 <input/>
+<form action = "test.jsp">
 <label>text</label>
 <input type = "text" name ="name" value = "보여줄 값" size = "10" maxlength = "15"/><br/>
 <label>password</label> 
@@ -14,5 +15,24 @@
 <input type = "text" name ="r" value = "보여줄 값" size = "10" readonly ="readonly"/><br/>
 <label>disabled</label> 
 <input type = "text" name ="r" value = "보여줄 값" size = "10" disabled = "disabled"/><br/>
+<label>checkbox</label> <br/>
+<input type = "checkbox" name ="c" value = "음악듣기" size = "10" checked = "checked">음악감상<br/>
+<input type = "checkbox" name ="c" value = " 유툽보기" size = "10" >영화감상<br/>
+<input type = "checkbox" name ="c" value = "자바코딩" size = "10" >코딩<br/>
+<label>radio</label> <br/>
+<input type = "radio" name ="gender" value = "M">남<br/>
+<input type = "radio" name ="gender" value = "F" checked = "checked">여<br/>
+<label>hidden</label> <br/>
+<input type = "hidden" name ="addr" value = "서울시 강남구 역삼동"><br/>
+<label>file</label> <br/> <!--  file은 value 속성으로 form control에 값을 설정할 수 없다  -->
+<input type = "file" name ="upfile" value = "c:/dev/env.bat"><br/>
+<label>전송버튼</label> <br/>
+<input type = "submit"  value="전송"/><br/>
+<label>취소버튼</label> <br/>
+<input type = "reset" value="초기화"/><br/>
+<label>버튼모양</label> <br/>
+<input type = "button"value="클릭"/><br/>
+</form>
+
 </body>
 </html>
