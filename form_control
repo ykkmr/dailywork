@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 입력 값 받기</title>
+</head>
+<body>
+<input/>
+<label>text</label>
+<input type = "text" name ="name" value = "보여줄 값" size = "10" maxlength = "15"/><br/>
+<label>password</label> 
+<input type = "password" name ="pass" size = "10" maxlength = "15"/><br/>
+<label>readonly</label> 
+<input type = "text" name ="r" value = "보여줄 값" size = "10" readonly ="readonly"/><br/>
+<label>disabled</label> 
+<input type = "text" name ="r" value = "보여줄 값" size = "10" disabled = "disabled"/><br/>
+</body>
+</html>
