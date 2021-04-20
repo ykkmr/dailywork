@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 사용</title>
+</head>
+<body>
+<!-- <thead>, <tbody>, <tfoot> : 의미적 태그 
+ <thread> 가 감싸고 있는 부분은 테이블을 보여줄 때 가장 위로 올라가고,
+ <tfoot> 이 감싸고 있는 부분은 테이블으로 보여줄 때 가장 밑으로 내려간다-->
+<table border = "1" cellspacing = "0" bordercolor = "#333333">
+<tfoot>
+<tr>
+	<td colspan = "2" align = "center">계</td>
+	<td> 79 </td>
+</tr>
+</tfoot>
+<thead>
+<tr>
+	<th width ="100">번호</th>
+	<th width ="120">이름</th>
+	<th width ="120">나이</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>1</td>
+	<td>강인섭</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>2</td>
+	<td>정은아</td>
+	<td>27</td>
+</tr>
+<tr>
+	<td>3</td>
+	<td>조혜원</td>
+	<td>26</td>
+</tr>
+</tbody>
+
+</table>
+</body>
+</html>
