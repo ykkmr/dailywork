@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테두리 선 설정</title>
+<style type="text/css">
+#all{ border : 1px solid #333 }
+#left{ border-left : 1px solid #FF0000}
+#top{ border-top : 1px solid #0000FF }
+#right{ border-right : 1px solid #000000 }
+#bottom{ border-bottom : 1px solid #00FF00 }
+#type{border : 2px double #333 } /* solid, dotted, dashed, double(2px부터 이중선 그려짐) */
+input{ border: 1px solid #0089FF ; 
+			font-size : 25px; 
+			text-align: center; 
+			color : #307DD4; 
+			font-weight: bold;
+			width: 250px; height: 40px;
+		}
+img{ border : 5px solid #333 }
+</style>
+</head>
+<body>
+<div id = "all">모든 선</div>
+<hr/>
+
+<div id = "left">왼쪽 선</div>
+<hr/>
+
+<div id = "top">위쪽 선</div>
+<hr/>
+
+<div id = "right">오른쪽 선</div>
+<hr/>
+
+<div id = "bottom">아래쪽 선</div>
+<hr/>
+
+<div id = "type">선 종류</div>
+<hr/>
+
+<input type = "text"/><br/>
+<hr/>
+<img src = "../common/images/포챠코3.jpg"/>
+
+</body>
+</html>
