@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- inline 방식으로 CSS사용 -->
+<div>안녕하세요?</div>
+<!--  우선순위가 높다  -->
+<div style = "font-size : 20px; font-weigth: bold">오늘은 수요일 입니다</div>
+<!--  동일 디자인을 다른 태그에서 사용하면, 똑같은 코드를 한번 더 써야한다 -->
+<p style = "font-size : 20px; font-weigth: bold">내일은 목요일 입니다.</p>
+</body>
+</html>
