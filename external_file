@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부파일방식 -->
+<!--  <link rel = "stylesheet" type ="text/css" href="external.css"/>-->
+<link rel = "stylesheet" type ="text/css" href="http://localhost/html_prj/day0421/external.css"/>
+</head>
+<body>
+<p>Java</p>
+<div>Oracle</div>
+<p>HTML</p>
+
+<ol>
+	<li><p>CSS</p></li>
+	<li><div>JavaScript</div></li>
+	<li><div>Servlet/JSP</div></li>
+</ol>
+</body>
+</html>
