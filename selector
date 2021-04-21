@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector 의 사용</title>
+<style type = "text/css" >
+/*	tag selector : 같은 이름의 모든 태그에 디자인 적용*/
+/* div{ color : #FF0000 }
+li{ color : #dfdfdf} */
+/* multiple selector : 여러 태그에 공통 디자인인을 적용 */
+/* div, li, p { color : #0000FF } */
+
+/* id selector : 디자인을 하나의 태그에만 적용
+	<body>에서 여러개의 id를 정의하고 사용하더라도,
+	에러가 발생하지 않으므로 주의하여 사용한다. */
+/* #div{ background-color: #00FF00 } */
+	
+/* class selector : 디자인을 필요한 여러 태그에 적용  */
+/* 	.div{ background-color: #FF0000 } */
+	
+/* behavior select : 사용자의 동작이 있을 때 태그를 적용 */
+li:hover{ background-color: #dfdfdf }
+</style>
+</head>
+<body>
+
+<div>Java SE(Open JDK)</div>
+<div class = "div" >Oracle DBMS</div>
+<p>JDBC(Java Database Connectivity)</p>
+<!--  <ul id = "div">-->
+<ul>
+	<li>HTML</li>
+	<li>CSS</li>
+</ul>
+<table border ="1">
+<tr class = "div">
+	<td width = "150" id = "div">JavaScript</td> 
+	<td width = "200"><div id="div">Servlet/JSP</div></td> 
+</tr>
+</table>
+
+</body>
+</html>
