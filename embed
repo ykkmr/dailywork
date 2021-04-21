@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type = "text/css">
+/* embed방식 : 코드의 중복성을 낮출 수 있다.
+	selector를 사용하여 디자인을 적용받을 태그를 선정할 수 있다.
+	*/
+	div{background-color: #dfdfdf }
+</style>
+</head>
+<body>
+
+<p>오늘은 수요일</p>
+<div>내일은 목요일</div>
+<ul>
+	<li>Java</li>
+	<li>Oracle</li>
+	<li><div>HTML</div></li>
+</ul>
+
+</body>
+</html>
