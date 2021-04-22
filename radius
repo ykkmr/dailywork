@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+div{ margin: 30px; width: 200px; height: 110px; border: 1px solid #333 }
+#all{ border-radius: 100px; box-shadow: 10px 10px 10px #000000;
+		padding-top: 90px; padding-left: 20px}
+#individual{ border-radius: 50px 50px 50px 50px }
+td{ width:100px; height: 100px; border: 1px solid #333; text-align: center;
+		font-weight: bold; font-size: 30px; border-radius: 50px;}
+.a{ background-color: #E9E9E9 }
+.b{ background-color: #E9E9E9 }
+.c{ background-color: #E9E9E9 }
+.d{ background-color: #E9E9E9 }
+.e{ background-color: #E9E9E9 }
+.f{ background-color: #E9E9E9 }
+.g{ background-color: #E9E9E9 }
+.h{ background-color: #E9E9E9 }
+.i{ background-color: #E9E9E9 }
+.j{ background-color: #E9E9E9 }
+</style>
+</head>
+<body>
+<div id="all">오늘은 목요일</div>
+<div id="individual">오늘은 목요일</div>
+<table>
+<tr>
+<td class = "a">1</td><td class = "b">2</td><td class = "c">3</td>
+</tr>
+<tr>
+<td class = "d">4</td><td class = "e">5</td class = "f"><td class = "j">6</td>
+</tr>
+<tr>
+<td class = "g">7</td><td class = "h">8</td><td class = "i">9</td>
+</tr>
+</table>
+
+
+</body>
+</html>
