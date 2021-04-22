@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+div, hr{ display: none; }
+ol, ul { list-style: none; margin: 0px; padding: 0px; }
+</style>
+</head>
+<body>
+<div>DIV안녕하세요?</div>
+<p>P 안녕하세요?</p>
+<ol>
+	<li>자바</li>
+	<li>HTML</li>
+	<li>CSS</li>
+</ol>
+<hr/>
+<ul>
+	<li>자바</li>
+	<li>HTML</li>
+	<li>CSS</li>
+</ul>
+</body>
+</html>
