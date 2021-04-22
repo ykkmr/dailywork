@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* sub selector : 특정태그를 부모로 하고 있는 태그만 디자인을 적용할 때 */
+	p > span { font-weight: bold; font-size: 25px }
+	ol > li > span{ color: #0000FF }
+</style>
+</head>
+<body>
+
+<p>
+오늘은 <span>목요일</span>입니다
+</p>
+<div>
+내일은 <span>금요일</span>입니다
+</div>
+<ul>
+	<li>이번주의<span>월요일</span>은 19일 입니다 </li>
+</ul>
+<ol>
+	<li>이번주의<span>화요일</span>은 20일 입니다 </li>
+</ol>
+</body>
+</html>
