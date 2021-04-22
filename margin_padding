@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>여백설정</title>
+<style type="text/css">
+	div{ border: 1px solid #333; width: 150px; height: 40px;}
+	
+	#mar{ margin: 10px }
+	#pad{ padding: 10px }
+	
+	#mar1{ margin-left: 30px; margin-top: 20px; margin-right: 40px;
+			margin-bottom: 50px;}
+	#pad1{ padding-left: 20px; padding-top: 30px; padding-right: 50px;
+			padding-bottom: 10px}
+			
+		body, ol, ul { margin: 0px; padding: 0px; }
+</style>
+</head>
+<body>
+<div id = "mar">마진: 안녕하세요?</div>
+<div id = "pad">패딩: 안녕하세요?</div>
+<div id = "mar1">마진: 안녕하세요?</div>
+<div id = "pad1">패딩: 안녕하세요?</div>
+<ul>
+	<li>딸기</li>
+	<li>포도</li>
+	<li>사과</li>
+</ul>
+<ol>
+	<li>딸기</li>
+	<li>포도</li>
+	<li>사과</li>
+</ol>
+</body>
+</html>
