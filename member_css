@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<link rel="stylesheet" type = "text/css" href = "http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<h1>회원가입</h1>
+<table>
+<tr>
+	<td><span class = "point">*</span>아이디</td> 
+	<td><input type="text" name="id" class = "inputBox" style = "width: 120px">
+	
+	<input type="button" value="중복확인" class="btn"/>
+	</td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>비밀번호</td>
+	<td><input type="password" name="pass" class = "inputBox" style = "width: 120px"></td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>비밀번호 확인</td>
+	<td><input type="password" name="passChk" class = "inputBox" style = "width: 120px"></td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>이름</td>
+	<td><input type="text" name="name" class = "inputBox" style = "width: 100px"></td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>주민등록 번호</td>
+	<td><input type="text" name="ssn1" class = "inputBox" style = "width: 60px"/> - 
+	<input type="password" name="ssn2" class = "inputBox" style = "width: 70px"/>
+	</td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>성별</td>
+	<td><input type="radio" name="gender" value="M">남자
+	<input type="radio" name="gender" value="F">여자</td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>생년월일</td>
+	<td>
+	<input type="text" class = "inputBox" style = "width: 40px" maxlength="4">-
+	<input type="text" class = "inputBox" style = "width: 20px" maxlength="2">-
+	<input type="text" class = "inputBox" style = "width: 20px" maxlength="2">
+	</td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>우편번호</td>
+	<td>
+	<input type="text" class = "inputBox"> 
+	<input type="button" value="우편번호찾기" class="btn" class = "inputBox">
+	</td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>주소</td>
+	<td><input type="text" class = "inputBox" style = "width: 350px"></td>
+</tr>
+<tr>
+	<td><span class = "point">*</span>상세주소</td>
+	<td><input type="text" class = "inputBox" style = "width: 350px"></td>
+</tr>
+<tr>
+	<td>이메일</td>
+	<td>
+	<input type="text" class = "inputBox" style = "width: 150px"/> @ 
+		<select name="domain" size="1" class = "inputBox">
+		<option value="none">직접입력</option>
+		<option value="daum.net">daum.net</option>
+		<option value="sist.co.kr">sist.co.kr</option>
+		<option value="google.com">google.com</option>
+		<option value="naver.com">naver.com</option>
+	</select>
+	<input type="text" class = "inputBox" style = "width: 140px">
+	</td>
+</tr>
+<tr>
+	<td>관심언어</td>
+	<td>
+	<input type="checkbox" name="lang" value="자바">자바
+	<input type="checkbox" name="lang" value="HTML">HTML
+	<input type="checkbox" name="lang" value="Visual Basic">Visual Basic
+	</td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td>
+	<input type="checkbox" name="lang" value="C/C++">C/C++
+	<input type="checkbox" name="lang" value="Python">Python
+	<input type="checkbox" name="lang" value="ASP">ASP
+	</td>
+</tr>
+<tr>
+	<td>가입인사</td>
+	<td><textarea name="ta"  class = "inputBox" style = "width: 250px; height: 70px"></textarea> </td>
+</tr>
+<tr>
+	<td colspan="2" style = "text-align: center">
+	<input type="button" value="가입 " class="btn">
+	<input type="reset" value="초기화" class="btn">
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+	<span class = "point">* 표는 필수입력입니다.</span>
+	</td>
+</tr>
+
+</table>
+
+</body>
+</html>
