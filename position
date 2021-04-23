@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 800px; height: 900px;}
+	#abs1{ position: absolute; top:200px; left:300px; width:80px; height: 100px; background-color: #FF0000; }
+	#abs2{ position: absolute; top:100px; left:100px; width:180px; height: 200px; background-color: #0000FF; }
+	#fix{ position: fixed; top: 100px; left:800px; width: 80px; height: 450px; background-color: #dfdfdf }
+</style>
+</head>
+<body>
+<div id = "wrap">
+	<div id = "abs1">relative를 사용하지 않은 ABS</div>
+	<div id = "div">DIV<br>헤헷<br>헤헷</div>
+	<div id = "rel">
+			<div id ="abs2">relative를 사용한 ABS</div>
+			<div id = "fix">Fixed</div>
+	</div>
+</div>
+
+</body>
+</html>
