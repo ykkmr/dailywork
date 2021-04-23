@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#left{ width: 400px; height: 200px; background-color:#DAEAD6; float:left; }
+	#right{ width: 400px; height: 200px; background-color:#DFDFDF; float:rignt; }
+	/* 위의 디자인에서 설정한 float이 아래 디자인에 적용되는 문제. clear:both 위에서 설정된 float속성을 초기화 시킴 */
+	#wrap{ clear: both; width: 800px; height: 300px; }
+	#wLeft{ background-color: #FF0000; width: 400px; height: 300px; float:left;}
+	#wRight{ background-color: #0000FF; width: 400px; height: 300px; float:rignt;}
+</style>
+</head>
+<body>
+<div id = "left"> 왼쪽으로 배치될 DIV</div>
+<div id = "right"> 오른쪽으로 배치될 DIV</div>
+
+<div id = "wrap">
+<div id ="wLeft">DIV 안에 왼쪽</div>
+<div id = "wRight">DIV 안에 오른쪽</div>
+</div>
+
+</body>
+</html>
