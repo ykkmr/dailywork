@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+#wrap{ width: 800px; height: 900px; margin: 0px auto;}
+#header{ width: 800px; height: 100px;  }
+#container{ width: 800px; height: 700px; }
+#footer{ width: 800px; height: 100px; }
+
+
+
+</style>
+</head>
+<body>
+<div id = "wrap">
+<!-- wrap : 800(w) x 900(h)  -->
+<div id = "header">header : 800(w) x 100(h)</div>
+<div id = "container">container : 800(w) x 700(h)</div>
+<div id = "footer">footer : 800(w) x 100(h)</div>
+</div>
+</div>
+
+</body>
+</html>
