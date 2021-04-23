@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 900px; height: 700px; margin:10px auto; background-color:#FFFEBF;  }
+	/* header 시작 */
+	#header{ width: 900px; height: 160px; position:relative; }
+	#menu{ width: 100px; height: 30px; float: right; margin-right: 20px; margin-top:10px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#logo{ width: 170px; height: 100px; float: left; margin-left: 20px; margin-top:40px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#headerTitle{ width: 400px; height: 60px; position:absolute; top: 40px; left: 250px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 50px; background-color:#D86161; }
+	#NavigationBar{ width: 900px; height: 40px; position:absolute; top: 150px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	/* header 끝 */
+	/* container 시작 */
+	#container{ width: 900px; height: 450px; background-color:#D86161;  }
+	#mainAD{ width: 530px; height: 120px; float: left; margin-left: 20px; margin-top:40px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#loginBox{ width: 250px; height: 170px; float: right; margin-right: 70px; margin-top:-300px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#AD2{ width: 250px; height: 100px; float: right; margin-right: 70px; margin-top:-100px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#News1{ width: 250px; height: 170px; float: left; margin-left: 20px; margin-top:10px; margin-right: 100px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#News2{ width: 250px; height: 170px; float: left; margin-left: -70px; margin-top:10px; margin-right: 200px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#NewBar{ width: 800px; height: 70px; position:absolute; bottom: 70px; left: 215px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	/* container 끝 */
+	/* footer 시작 */
+	#footer{ width: 900px; height: 140px; background-color:#D8D861;  }
+	#footerTitle{ width: 300px; height: 80px; float: right; margin-right: 70px; margin-top:40px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	#FooterLogo{ width: 170px; height: 80px; float: left; margin-right: 20px; margin-top:40px; margin-left: 30px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px; background-color:#A2A2D8; }
+	/* footer 끝 */
+</style>
+</head>
+<body>
+<div id = "wrap">
+<!-- 	wrap w900(w) x 1000(h) -->
+	<div id = "header">
+		<!-- header w900(w) x 160(h) -->
+	<div id = "menu">
+			menu
+	</div>
+	<div id = "logo">
+			logo
+	</div>
+		<div id = "headerTitle">
+			Main title
+		</div>
+		<div id = "NavigationBar">
+			NavigationBar
+		</div>
+	</div>
+	<div id = "container">
+		<div id = "mainAD">
+			mainAD
+		</div>
+		<div id = "News1">
+			News1
+		</div>
+		<div id = "News2">
+			News2
+		</div>
+		<div id = "loginBox">
+			loginBox
+		</div>
+		<div id = "AD2">
+			AD2
+		</div>
+
+		</div>
+		<div id = "NewBar">
+			NewBar
+		</div>
+	<div id = "footer">
+			<!-- footer 900(w) x 140(h) -->
+			<div id = "footerTitle">
+			Footer title
+			</div>
+			<div id = "FooterLogo">
+			FooterLogo
+			</div>
+	</div>
+</div>
+
+</body>
+</html>
