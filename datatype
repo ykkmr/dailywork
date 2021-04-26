@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+var a = "안녕";
+var b = '안녕';
+var c = 12;
+var d = 12.48;
+var e = true;
+
+console.log(a+"의 데이터 형 : " + typeof(a));
+console.log(b+"의 데이터 형 : " + typeof(b));
+console.log(c+"의 데이터 형 : " + typeof(c));
+console.log(d+"의 데이터 형 : " + typeof(d));
+console.log(e+"의 데이터 형 : " + typeof(e));
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
