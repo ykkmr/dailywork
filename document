@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 900px; height: 1000px; margin:10px auto;  }
+	/* header 시작 */
+	#header{ width: 900px; height: 160px; position:relative; 
+				background: url(http://211.63.89.153/html_prj/day0423/images/header.png) #FFFFFF repeat-x }
+	#headerTitle{ width: 400px; height: 60px; position:absolute; top: 40px; left: 250px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 50px;}
+	/* header 끝 */
+	/* container 시작 */
+	#container{ width: 900px; height: 700px; }
+	/* container 끝 */
+	/* footer 시작 */
+	#footer{ width: 900px; height: 140px; }
+	#footerTitle{ width: 450px; height: 30px; float: right; margin-right: 20px; margin-top:40px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px;}
+	/* footer 끝 */
+</style>
+<script type="text/javascript">
+function test() {
+	document.write("document.write를 사용하지 않는 이유");
+	console.log(출력);
+	alert("출력!");
+}//test
+</script>
+</head>
+<body>
+<div id = "wrap">
+<!-- 	wrap w900(w) x 1000(h) -->
+	<div id = "header">
+		<!-- header w900(w) x 160(h) -->
+		<div id = "headerTitle">
+			Class 4. Design
+		</div>
+	</div>
+	<div id = "container">
+	<input type="button" value="클릭" class="btn" onclick="test()"/>
+		</div>
+	<div id = "footer">
+			<!-- footer 900(w) x 140(h) -->
+			<div id = "footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+			</div>
+	</div>
+</div>
+
+</body>
+</html>
