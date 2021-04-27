@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+  div{ width: 400px; height: 300px; overflow: auto;border: 1px solid #333 ;
+  		margin: 40px auto;}
+</style>
+<script type="text/javascript">
+
+ var msg="자바스크립트,JavaScript";
+ // 문자열의 길이를 얻는 length는 함수로 제공되는 것이 아닌 "키워드"로 제공된다. ()를 붙여 사용하면 Error.
+ //substring을 사용할 때에는 시작인덱스, 끝인덱스+1
+ var output="<strong>\""+msg+"\"</strong>의 글자수 "+msg.length+"글자<br/>"
+ 				+"대문자 : "+ msg.toUpperCase()+"<br/>"
+ 				+"소문자 : "+ msg.toLowerCase()+"<br/>"
+ 				+"7번째 인덱스의 문자 : "+ msg.charAt(7)+"<br/>"
+ 				+"'a'문자의 인덱스 : "+ msg.indexOf("a")+"<br/>"
+ 				+msg+"에서 7~10인덱스 사이 자식 문자열: "+ msg.substring(7, 11)+"<br/>"
+ 				+msg+"에서 7인덱스에서부터 끝까지 문자열: "+ msg.substring(7)+"<br/>";
+ 				
+ msg="   화 요일   ";
+ output += "["+msg+"]를 앞뒤 공백 제거. ["+msg.trim()+"]<br/>"
+ 			+ msg.concat("입니다.")+"<br/>";
+ 			
+ msg="곽범수,진재혁,현병호,한상민,강인섭"; //CSV Data
+ 
+ var nameArr=msg.split(",");// ,를 기준으로 문자열을 문자열 배열로 만든다.
+ 
+ output += "원본데이터 "+msg+"<br/>,를 기준으로 구분된 데이터<br/>";
+ 
+ for( var i= 0; i <nameArr.length ; i++){
+	 output +=  nameArr[i]+"<br/>"
+ }//end for
+ 
+ //치환 : replace("찾을 문자열", "변경할 문자열") 가장 처음에 일치하는 문자열 하나만 변경한다
+ // output += msg.replace(",", "~");
+ //반복적으로 모든 문자열을 변경할 때에는 정규식(regexp)을 사용한다 /찾을문자열/g
+ output += msg.replace(/한/g, "~");
+ document.write("<div>"+output+"</div>");
+ 
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
