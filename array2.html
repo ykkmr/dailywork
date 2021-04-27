@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+ .groupDiv{border:1px solid #333;border-radius: 10px; padding: 10px; width: 800px }
+</style>
+<script type="text/javascript">
+//이차원 배열 사용.
+//1. 일차원 배열을 생성한다.
+var arr2=new Array();
+//2. 일차원 배열의 방에 일차원 배열을 생성한다. (이차원배열)
+arr2[0]=new Array();
+arr2[1]=new Array();
+arr2[2]=new Array();
+
+//3. 값 할당.
+arr2[0][0]="이하늘";
+arr2[0][1]="이학민";
+arr2[0][2]="진재혁";
+arr2[0][3]="한상민";
+arr2[0][4]="이상철";
+
+arr2[1][0]="곽범수";
+arr2[1][1]="박기범";
+arr2[1][2]="조혜원";
+arr2[1][3]="권예원";
+arr2[1][4]="석지원";
+
+arr2[2][0]="조영래";
+arr2[2][1]="유경우";
+arr2[2][2]="현병호";
+arr2[2][3]="김다은";
+arr2[2][4]="이예림";
+//방에 값을 초기화문법을 사용하여 입력.
+arr2[3]=["강인섭","정은아","송준희","김덕영"];
+
+for(var i=0; i < arr2.length ; i++){
+	console.log( "arr2["+i+"]행 열의 수 "+ arr2[i].length );
+}//end for
+
+for(var i=0; i < arr2.length ; i++){
+	document.write("<div class='groupDiv'>");
+	document.write("<strong>"+ (i+1) +"조</strong>");
+	
+	for(var j=0; j < arr2[i].length ; j++){
+		document.write("<input type='text' value='"+ arr2[i][j] +"'>");
+	}//end for
+	
+	document.write("</div>");
+}//end for
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
