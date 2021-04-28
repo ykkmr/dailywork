@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+function getValue() {
+	var name = window.document.frm.name.value;
+	alert( name )
+	//1. form 태그까지를 변수에 저장
+	var obj = window.document.frm;
+	var nam = obj.name.value;
+	var age = obj.age.value;
+	var addr = obj.addr.value;
+	
+	console.log("이름 : " + name + ", 나이 : " + age + ", 주소 : " + addr );
+	
+	
+}//getValue
+</script>
+</head>
+<body>
+<form action="test.jsp" name ="frm"><!-- form 태그가 존재해야 동기방식으로 값을 전달할 수 있다  -->
+<label>이름</label>
+<input type = "text" name = "name" class = "inputBox"/><br/>
+<label>나이</label>
+<input type = "text" name = "age" class = "inputBox"/><br/>
+<label>주소</label>
+<input type = "text" name = "addr" class = "inputBox"/><br/>
+<input type = "button" value = "값 얻기" class = "btn" onclick = "getValue()"/><br/>
+
+</form>
+</body>
+</html>
