@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+function getValue(){
+//1. id를 가진 태그를 얻어와서
+//	var textName=window.document.getElementById("name");
+//2. 값을 얻는다. 
+//	alert( textName.value )
+var name=window.document.getElementById("name").value;
+//최상위 객체인 window는 생략가능
+var age=document.getElementById("age").value;
+var addr=window.document.getElementById("addr").value;
+
+console.log( name+"/"+age+"/"+addr );
+
+}//getValue
+</script>
+</head>
+<body>
+<div>
+	<label>이름</label> <input type="text" id="name" class="inputBox"  autofocus="autofocus"/><br/>
+	<label>나이</label> <input type="text" id="age" class="inputBox"/><br/>
+	<label>주소</label> <input type="text" id="addr" class="inputBox"/><br/>
+	<input type="button" value="값얻기" class="btn" onclick="getValue()"/><br/>
+</div>
+
+</body>
+</html>
