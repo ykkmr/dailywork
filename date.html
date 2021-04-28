@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+	//Date 객체 사용.  서버의 시간(모든 접속자가 동일한 시간을 적용받고  사용.)이 아닌 
+	//접속자 컴퓨터의 시간(모든 접속자가 다른 시간을 적용받고 사용.) 정보가 사용.
+	
+	var date=new Date();
+	
+	var output=date+"<br/>"+ date.getFullYear()+"/"+ (date.getMonth()+1)+"/"
+				+date.getDate()+" "+ date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+	    ;
+	
+	
+	document.write( "<div>"+output+"</div>");
+	
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
