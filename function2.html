@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+function func1(){
+	alert("매개변수 없는 함수.");
+}//func1
+
+/*  
+	매개변수를 정의할 때에는 var(let,const)를 붙이지 않고, 이름만 넣어서 정의한다.   
+ */
+function func2(year, month  ){
+	alert("매개변수 있는 함수. "+ year+"/"+month);
+}//func1
+
+/*
+	반환 값이 있는 함수. ( 함수의 가장 마지막 줄에 return 을 기술한다. )
+*/
+function func3(){
+	
+	return "안녕하세요?";
+}//func3
+
+function func4(){
+	var returnValue= func3();
+	
+	alert( returnValue );
+}//func4
+
+function func5(){
+	let addr;
+	addr= "서울시 강남구 역삼동";
+	alert( addr );
+	
+	const age; // 상수 : 선언할 때 값을 넣어야한다
+	age=20; //값을 할당할 수 없다
+	alert(age);
+}//func5
+
+</script>
+</head>
+<body>
+<input type="button" value="매개변수 없는 함수 호출" class="btn" onclick="func1()"/>
+<input type="button" value="매개변수 있는 함수 호출" class="btn" onclick="func2(2021,4)"/>
+<input type="button" value="매개변수 있는 함수 호출" class="btn" onclick="func2('2021','4')"/>
+<input type="button" value="반환값이 있는 함수 호출" class="btn" onclick="func4()"/>
+
+</body>
+</html>
