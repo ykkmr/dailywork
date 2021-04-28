@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	fieldset { border: 1px solid #333; width: 500px; height: 500px }
+</style>
+<script type="text/javascript">
+function getValue(){
+	//1. form 태그 까지를 변수에 저장.
+	var obj=document.frm;
+	//2. Form Control에 접근하여 값 얻기.
+	var txt=obj.txt.value;//<input type="text"/>
+	var pass=obj.pass.value;//<input type="password"/>
+	//<input type="checkbox"/> chebox가 value속성을 가지지 않은 경우 체크한 상태면 on 이 back-end로 
+	//넘어가고, 체크하지 않은 상태면 back-end로 값이 넘어가지 않는다.
+	var chk=obj.flag.value;
+	var hidden=obj.hid.value;//<input type="hidden"/>
+	var file=obj.file.value;//<input type="file"/>
+	var img=obj.img.src;// <img src="" name="img"/> img태그는 src로 값을 설정하기 때문에 
+	// 설정된 값을 얻을 때에는 value가 아닌 src로 값을 얻는다.
+	var ta=obj.ta.value;// <textarea>
+	
+	if(txt == ""){
+		alert("텍스트는 필수 입력");
+		return;
+	}
+	
+	console.log("text : "+txt);
+	console.log("password : "+pass);
+	console.log("checkbox : "+chk);
+	console.log("hidden : "+hidden);
+	console.log("file : "+file);
+	console.log("img : "+img);
+	console.log("ta : "+ta);
+}//getValue
+</script>
+</head>
+<body>
+<form action="#" name="frm">
+<fieldset>
+	<legend>name속성에 이름이 하나인 Form Control 값얻기</legend>
+	<div>
+	<label>text</label><input type="text" name="txt" class="inputBox"/><br/>
+	<label>password</label><input type="password" name="pass" class="inputBox"/><br/>
+	<label>checkbox</label><input type="checkbox" name="flag" value="선택" class="inputBox"/><br/>
+	<label>hidden</label><input type="hidden" name="hid" value="숨겨서 값넘김"/><br/>
+	<label>file</label><input type="file" name="file"/><br/>
+	<label>이미지</label><img src="../common/images/포챠코1.jpg" name="img" class="inputbox"/><br/>
+	<label>textarea</label>
+		<textarea name="ta" class="inputBox" style="width: 300px;height: 50px"></textarea>
+		<br/>
+	<input type="button" value="값 얻기" class="btn" onclick="getValue()"/>
+	</div>
+</fieldset>
+</form>
+
+</body>
+</html>
