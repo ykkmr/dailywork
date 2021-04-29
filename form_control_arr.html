@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+ fieldset { border: 1px solid #333; width: 300px;height: 400px }
+</style>
+<script type="text/javascript">
+function getValue(){
+	//1. 값을 얻을 <form>태그를 변수 저장.
+	const obj=document.frm;
+	
+	console.log("체크박스 갯수 : "+ obj.hobby.length );
+	console.log("라디오 갯수 : "+ obj.gender.length );
+	console.log("옵션 갯수 : "+ obj.domain.length );
+	
+	var hobby="";
+	for( var i= 0 ; i < obj.hobby.length ; i++){
+//		alert( obj.hobby[i].checked );//체크여부 얻기
+//		alert( obj.hobby[i].value );//체크여부와 상관 없이 값 얻기
+		if( obj.hobby[i].checked ){
+			hobby += obj.hobby[i].value+" ";
+		}//end if
+	}//end for
+	
+	if(hobby==""){
+		alert("취미를 선택해주세요.");
+		return;
+	}//end if
+	
+	alert( hobby );
+	
+	//라디오에서 값 얻기
+	//alert( obj.gender[0].checked+ " / " + obj.gender[1].checked );
+	
+	var gender = "";
+	
+	if (obj.gender[0].checked){
+		gender = obj.gender[0].value;
+	}//end if
+
+	if (obj.gender[1].checked){
+		gender = obj.gender[1].value;//checked.value라고 쓰셨어요
+	}//end if
+	
+	if (gender ==""){
+		alert("성별 필수 입력");
+		return;
+	}//end if
+	alert("선택한 성별은 : " + gender );
+	
+	//옵션 얻기
+	/* for( var i = 0 ; i < obj.domain.length ; i ++){
+		if( obj.domain[i].selected ){
+			alert( obj.domain[i].value );
+			break;
+		}//end if
+	}//end for */
+//	alert("선택된 옵션의 인덱스 : " + obj.domain.selectedIndex);
+//	alert("선택된 옵션의 인덱스의 값 : " + obj.domain[obj.domain.selectedIndex].value);
+	alert("선택된 옵션의 인덱스의 값 : " + obj.domain.value);
+	
+}//getValue
+</script>
+</head>
+<body>
+<div>
+<form action="#" name="frm">
+<fieldset>
+	<legend>배열로 처리</legend>
+	<label>취미</label>
+	<input type="checkbox" name="hobby" value="등산">등산
+	<input type="checkbox" name="hobby" value="낚시">낚시
+	<input type="checkbox" name="hobby" value="독서">독서
+	<input type="checkbox" name="hobby" value="영화감상">영화감상
+	<input type="checkbox" name="hobby" value="음악감상">음악감상
+	<br/>
+	<label>성별</label>
+	<input type="radio" name="gender" value="남자">남자
+	<input type="radio" name="gender" value="여자">여자
+	<br/>
+	<label>도메인주소</label>
+	<select name="domain">
+		<option value="none">---------도메인 선택-----------</option>
+		<option value="gmail.com">지메일</option>
+		<option value="daum.net">다음메일</option>
+		<option value="naver.com">네이버메일</option>
+		<option value="hotmail.com">핫메일</option>
+	</select>
+	<br/>
+	<input type="button" value="값얻기" class="btn" onclick="getValue()">
+</fieldset>
+
+</form>
+
+</div>
+
+</body>
+</html>
