@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+function moveSite( sel ) {
+	if( sel.selectedIndex != 0 ){ //url선택이 아닌 경우에 이동
+	
+		if( confirm(sel.value + "으로 이동하시겠습니까? ") ){
+//			location.href="http://"+sel.value; //뒤로가기 가능  href는 속성이어서 href= 으로 쓰고
+			location.replace("http://"+sel.value); //뒤로가기 불가능  replace는함수여서 replace()로 씁니다.
+		}//end if
+		
+	}//end if 
+	
+}//moveSite
+</script>
+</head>
+<body>
+<select name = "url" onchange = "moveSite(this)">
+	<option value = "N/A">--- URL 선택 ---</option>
+	<option value = "daum.net">다음</option>
+	<option value = "google.com">구글</option>
+	<option value = "naver.com">네이버</option>
+	<option value = "nate.com">네이트</option>
+	<option value = "sist.co.kr">쌍용교육센터</option>
+</select>
+</body>
+</html>
