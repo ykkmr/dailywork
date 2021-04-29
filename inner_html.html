@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+#div{ width: 400px; height: 400px; border:1px solid #333}
+</style>
+<script type="text/javascript">
+function useInnerHTML(){
+	var html = " <marquee scrollamount = '10'<strong>오늘은 목요일 입니다</strong></marquee>"
+	+"내일은 금요일 입니다 </br>"
+	+"<div style = 'border:1px solid #ff0000; font-size:19px'>안녕</div>"
+	+"<img src = '../common/images/포챠코1.jpg'/>"
+	;
+	
+	var divNode = document.getElementById("div");
+	divNode.innerHTML = html;
+}//useInnerHTML
+</script>
+</head>
+<body>
+
+<input type="button" value="설정" class="btn" onclick="useInnerHTML()"/>
+<div id="div"></div>
+</body>
+</html>
