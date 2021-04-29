@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+ //var data=confirm("결정");
+ //alert( data );
+ function test( param_obj ){
+	 var obj=document.frm; // obj를 사용하여 na, ch,sel 에 접근 할 수 있다. 
+	 alert( obj +" / " + param_obj)
+ }//test
+ 
+ function test1( obj ){ // 이벤트를 발생시킨 Element 자신이 입력된다.
+	 alert(obj+" / " + obj.value );//text, checkbox, select
+ }//test1
+</script>
+</head>
+<body>
+<form name="frm">
+<input type="text" name="na" value="A" onclick="test1( this )"> <!-- this는 이벤트를 발생시킨 HTML Element가된다. -->
+<input type="checkbox" name="ch"  value="B" onclick="test1( this )">
+<select name="sel" onclick="test1( this )">
+	<option value="SA">A</option>
+	<option value="SB">B</option>
+</select>
+<input type="button" value="btn" onclick="test( document.frm )">
+</form>
+
+</body>
+</html>
