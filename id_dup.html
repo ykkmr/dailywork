@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+#wrap{ width: 502px;height:303px; margin: 0px auto }
+#container{width: 502px;height:303px; background:  url('images/id_background.png' ) #FFFFFF no-repeat; }
+#idFrm{ position:absolute; top: 100px; left:60px} 
+#useId{ position:absolute; top: 200px; left:280px} 
+</style>
+<script type="text/javascript">
+function useId(){
+	var obj=document.idFrm;
+	//부모창을 사용할 때에는 opener로 접근한다. 
+	var pObj=opener.window.document.frm;
+	
+	//부모창에 값 전송.
+	pObj.id.value=obj.id.value;
+	//자식창을 닫기.
+	self.close();
+}//useId
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="container">
+		<div id="idFrm">
+		 <form action="#" name="idFrm">
+			<input type="text" name="id" class="inputBox" style="width: 200px"/>
+			<input type="button" value="중복확인" class="btn" style="height: 32px"/>
+		 </form>
+		</div>
+		<div id="useId">
+			<input type="button" value="사용" class="btn" onclick="useId()"
+			 style="height: 32px;background-color: #5B5B5B;color: #FFFFFF"/>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
