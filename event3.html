@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 900px; height: 1000px; margin:0px auto; }
+	/* header 시작*/
+	#header{ width: 900px; height: 160px; position:relative; 
+	           background: url(http://211.63.89.130/html_prj/common/images/header.png) #FFFFFF repeat-x }
+	#headerTitle{ width: 400px; height: 60px;position:absolute;top:40px;left:250px;
+				font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 50px }
+	/* header 끝*/
+	/* container 시작*/
+	#container{ width: 900px; height: 700px; } 
+	/* container 끝*/
+	/* footer 시작*/
+	#footer{ width: 900px; height: 140px; }
+	#footerTitle{ width: 450px; height: 30px;float:right;margin-right:20px;margin-top:40px;
+			font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 20px  }
+	/* footer 끝*/
+	
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	//Form Control에 이벤트를 등록.
+	document.getElementById("id").addEventListener("keydown",enterKey);
+	document.getElementById("pass").addEventListener("keydown",enterKey);
+	document.getElementById("btn").addEventListener("click",chkNull);
+}//function
+
+function enterKey( evt ){
+	if( evt.which == 13 ){
+		chkNull();
+	}//end if
+}//enteKey
+
+function chkNull(){
+	var obj=document.frm;
+	//아이디가 존재?
+	if( obj.id.value == ""){
+		alert("아이디는 필수 입력" );
+		obj.id.focus();
+		return;
+	}//end if		
+	//비밀번호가 존재?
+	if( obj.pass.value == ""){
+		alert("비밀번호는 필수 입력" );
+		obj.pass.focus();
+		return;
+	}//end if		
+	
+	//location.href나 location.replace는 페이지를 이동하기는 하나 HTML Form Control에 존재하는 값을
+	//전송할 수 없다.
+	//location.href="test.jsp";
+	//<form>태그의 하위 태그로 존재하는 HTML Form Control의 값을 전송할려면 document.폼이름.submit();
+	//함수를 호출해야한다. 
+	document.frm.submit();
+}//chkNull
+</script>
+
+</head>
+<body>
+
+<div id="wrap">
+	<div id="header">
+		<div id="headerTitle">
+			Class 4. Design
+		</div>
+	</div>
+	<div id="container">
+	<form action="test.jsp" name="frm">
+	<table style="margin: 0px auto">
+	<tr>
+		<td>
+			<input type="text" name="id" id="id" class="inputBox" style="width: 200px;height: 30px"
+			  placeholder="아이디" autofocus="autofocus" tabindex="1"/>
+		</td>
+		<td rowspan="2">
+			<input type="button" value="로그인"  id="btn" class="btn"  tabindex="3"
+					style="margin-left:10px; width: 80px;height: 74px"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="password" name="pass" id="pass" class="inputBox" tabindex="2"
+			 style="width: 200px;height: 30px"  placeholder="비밀번호"/>
+		</td>
+	</tr>
+	</table>
+	</form>
+	</div>
+	<div id="footer">
+		<div id="footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
