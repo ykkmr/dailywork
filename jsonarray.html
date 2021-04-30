@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 900px; height: 1000px; margin:10px auto;  }
+	/* header 시작 */
+	#header{ width: 900px; height: 160px; position:relative; 
+				background: url(http://211.63.89.153/html_prj/day0423/images/header.png) #FFFFFF repeat-x }
+	#headerTitle{ width: 400px; height: 60px; position:absolute; top: 40px; left: 250px;
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 50px;}
+	/* header 끝 */
+	/* container 시작 */
+	#container{ width: 900px; height: 700px; }
+	/* container 끝 */
+	/* footer 시작 */
+	#footer{ width: 900px; height: 140px; }
+	#footerTitle{ width: 450px; height: 30px; float: right; margin-right: 20px; margin-top:40px; 
+					font-weight: bold; font-family: 고딕, godic, sans-serif; font-size: 20px;}
+	/* footer 끝 */
+</style>
+</head>
+<script type="text/javascript">
+//1. JSONArray 형식의 문자열 선언
+	var data = 
+		"[ {name:'현병호', age: 25}, {name:'박기범', age: 26}, {name:'정은아', age: 24}, {name:'이상철', age: 27}]";
+//2. 객체생성
+	var jsonArr = eval("("+data+")");
+//3. 방의 개수
+//	alert( jsonArr.length );
+	var jsonObj;
+	for( var i = 0; i < jsonArr.length ; i ++){
+		jsonObj=jsonArr[i];
+		alert(jsonObj.name + " / " + jsonObj.age);
+	}//end for
+	
+</script>
+<body>
+<div id = "wrap">
+<!-- 	wrap w900(w) x 1000(h) -->
+	<div id = "header">
+		<!-- header w900(w) x 160(h) -->
+		<div id = "headerTitle">
+			Class 4. Design
+		</div>
+	</div>
+	<div id = "container">
+
+		</div>
+	<div id = "footer">
+			<!-- footer 900(w) x 140(h) -->
+			<div id = "footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+			</div>
+	</div>
+</div>
+
+</body>
+</html>
