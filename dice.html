@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 900px; height: 1000px; margin:0px auto; }
+	/* header 시작*/
+	#header{ width: 900px; height: 160px; position:relative; 
+	           background: url(http://211.63.89.130/html_prj/common/images/header.png) #FFFFFF repeat-x }
+	#headerTitle{ width: 400px; height: 60px;position:absolute;top:40px;left:250px;
+				font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 50px }
+	/* header 끝*/
+	/* container 시작*/
+	#container{ width: 900px; height: 700px; } 
+	/* container 끝*/
+	/* footer 시작*/
+	#footer{ width: 900px; height: 140px; }
+	#footerTitle{ width: 450px; height: 30px;float:right;margin-right:20px;margin-top:40px;
+			font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 20px  }
+	/* footer 끝*/
+	
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	setDice();
+}//function
+
+function setDice(){
+	var dice1=parseInt(Math.random()*6)+1;
+	var dice2=parseInt(Math.random()*6)+1;
+	
+	var img1=document.getElementById("dice1");
+	var img2=document.getElementById("dice2");
+	
+	img1.src="images/dice_"+dice1+".png";
+	img2.src="images/dice_"+dice2+".png";	
+	
+}//setDice
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div id="headerTitle">
+			Class 4. Design
+		</div>
+	</div>
+	<div id="container">
+	<div>
+	<form name= "diceFrm">
+		<div id="playerDiv" style="margin-bottom: 20px">
+		<label>이름 1</label>
+		<input type="text" name="p1" class="inputBox">
+		<label>이름 2</label>
+		<input type="text" name="p2" class="inputBox">
+		<input type="button" value="입력" class="btn">
+		</div>
+		<div id="turnDiv" style="margin-bottom: 20px">
+		<input type="radio" name="turn" value ="p1"><span id="p1Name"></span>
+		<input type="radio" name="turn" value ="p2"><span id="p2Name"></span>
+		<input type="button" value="던지기" class="btn">
+		</div>
+		<div id="diceDiv">
+		<img src="images/dice_1.png" id="dice1"/>
+		<img src="images/dice_1.png" id="dice2"/>
+		</div>
+		</form>
+	</div>
+	</div>
+	<div id="footer">
+		<div id="footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
