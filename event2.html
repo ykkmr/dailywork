@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+	#wrap{ width: 900px; height: 1000px; margin:0px auto; }
+	/* header 시작*/
+	#header{ width: 900px; height: 160px; position:relative; 
+	           background: url(http://211.63.89.130/html_prj/common/images/header.png) #FFFFFF repeat-x }
+	#headerTitle{ width: 400px; height: 60px;position:absolute;top:40px;left:250px;
+				font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 50px }
+	/* header 끝*/
+	/* container 시작*/
+	#container{ width: 900px; height: 700px; } 
+	/* container 끝*/
+	/* footer 시작*/
+	#footer{ width: 900px; height: 140px; }
+	#footerTitle{ width: 450px; height: 30px;float:right;margin-right:20px;margin-top:40px;
+			font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 20px  }
+	/* footer 끝*/
+	
+</style>
+<script type="text/javascript">
+function useKeyCode(){
+	//이벤트 객체 받기. Event, MouseEvent(PointerEvent), KeyboardEvent
+	alert("발생한 이벤트 : "+  window.event )
+	alert("눌린 키 코드 값 : "+ window.event.keyCode +" / "+ window.event.which);
+}
+
+window.onload=function(){
+	//이벤트 등록처리.
+	document.getElementById("txtA").addEventListener("keydown",useKeyCode1);
+}//function
+// 이벤트 처리 함수에 매개변수를 정의하면 JavaScript Engine이 발생한 이벤트 객체를 arguments로 할당해준다
+function useKeyCode1( evt ){
+	alert("발생한 이벤트 : "+  window.event )
+	alert("눌린 키 코드 값 : "+ evt.keyCode +" / "+ evt.which);
+}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div id="headerTitle">
+			Class 4. Design
+		</div>
+	</div>
+	<div id="container">
+	<label>on처리</label>
+	<input type="text" name="txtA" class="inputBox" onkeydown="useKeyCode()"/><br/>
+	<label>addEventListener</label>
+	<input type="text" name="txtA" class="inputBox" id="txtA"/><br/>
+	</div>
+	<div id="footer">
+		<div id="footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
