@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.130/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+function NullCheck(){
+	this.chkNull=function(value){
+		var flag = value == null || value=="";
+		return flag;
+	}//function
+}//function
+
+window.onload=function(){
+	document.getElementById("btn").addEventListener("click", test);
+}//onclick
+
+function test(){
+	var obj=document.frm;
+	var name=obj.name.value;
+	
+	var nc=new NullCheck();
+	if( nc.chkNull(name) ){
+		alert("이름은 필수 입력!!")
+		obj.name.focus();
+		return;
+	}//end if
+	
+}
+
+
+</script>
+</head>
+<body>
+<form name="frm">
+<input type="text" name="name" class="inputbox"/>
+<input type="button" value="값 얻기" class="btn" id="btn"/>
+
+</form>
+</body>
+</html>
+
+
