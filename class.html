@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.130/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+//클래스
+function MyData(){ 
+	var test="사용못해!!T0T";
+	this.name="현병호";
+	
+	//기명함수 : 외부에서 호출 불가능
+	function func1(){
+		alert("기명함수");
+	}
+	//this를 사용한 무기명함수 : 외부에서 호출 가능.
+	this.addr=function(){
+		return "서울시 강남구 역삼동 한독빌딩";
+	}//function
+}//MyData
+
+//클래스외부에서 prototype을 사용하여 변수, 함수 추가
+//변수 : 클래스명.prototype.이름=값;
+MyData.prototype.age=25;
+
+//함수 : 클래스명.prototype.이름=function(){  }
+MyData.prototype.zipcode=function(){
+	return "12345";
+}
+
+var md=new MyData();
+md.age=30;
+try{
+	alert( "class안에 var가 붙은 변수는 외부에서 사용할 수 없다. "+md.test );
+	alert( "class안에 this가 붙은 변수는 외부에서 사용할 수 있다. "+md.name );
+	//md.func1(); //try~catch 를 하면 사용자에게 에러상황을 보여줄 수 있다.(에러의 처리가 가능하다.)
+	//try~catch를 하지 않으면 에러를 console에 출력한다.
+	alert("class안 this가 붙은 무기명 함수는 외부에서 사용할 수 있다."+md.addr());
+	alert("prototype으로 추가된 변수 : "+ md.age );	
+	alert("prototype으로 추가된 함수 : "+ md.zipcode() );	
+	
+}catch(e){ 
+	alert("에러"+ e)
+}
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
