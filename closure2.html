@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.130/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+var clo=function( ){
+	var name="이상철";
+	function age(){
+		return 25;
+	}
+	return { myName : name, age : age };
+}(); //()로 무기명 함수를 호출하는 것.
+
+alert(clo.myName+ " / "+ clo.age() );
+//매개변수 있는 무기명 함수
+var clo1=function( addr ){
+	var name="이상철";
+	function age(){
+		return 25;
+	}
+	var addr1=function(){
+		return addr;
+	}
+	return { myName : name, age : age, addr: addr1 };
+}("서울시 구로구"); //()로 무기명 함수를 호출하는 것.
+alert(clo1.myName+ " / "+ clo1.age()+ " / "+clo1.addr() );
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
