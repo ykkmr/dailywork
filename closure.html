@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.130/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+/*
+ 클로져가 필요한 상황
+function test(){
+	var msg="오늘은 월요일 입니다.";
+	function inFunc(){
+		alert("중첩정의한 함수.");
+	}//inFunc
+	alert("test호출 : " + msg);
+}//test
+
+test();
+
+//함수안의 변수(지역변수)를 외부에서 호출. ( 함수안의 변수와 함수는 전역이 아닌이상 호출 불가능)
+alert( test.msg );
+test.inFunc();
+*/
+
+//()를 사용한 클로져
+//1. closuer의 선언.
+var clo=( {
+				name : "한상민",
+				addr : function(){
+					return "서울시 강남구 역삼동";	
+				},
+				age : function(year){
+					var date=new Date();
+					return  date.getFullYear()-year+1;
+				}
+			});
+//2. 사용. : 함수기호 "()" 사용하지 않고 함수를 호출하면 함수의 내용이 문자열로 반환된다. 
+//(함수에 정해진 일을 수행하지 못한다.)
+alert( clo.name+" / "+ clo.addr()+" / "+ clo.age(1995) );
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
