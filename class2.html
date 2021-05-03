@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.130/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+//부모클래스를 선언
+function Parent(){//매개변수 없는 생성자 함수
+	this.name;
+	
+	this.setName=function(name){
+		this.name=name;
+	}//function
+	this.getName=function(){
+		return this.name;		
+	}//function
+}//function
+/*
+var parent=new Parent();
+parent.setName("진재혁");
+alert( parent.getName() );
+*/
+//자식클래스를 선언
+function Child( addr ){//매개변수 있는 생성자함수
+	this.addr=addr;
+	
+	this.setAddr=function(addr){
+		this.addr=addr;	
+	}//function
+	
+	this.getAddr=function(){
+		return this.addr;
+	}//function
+}//function
+
+//상속 :자식클래스명.prototype=new 부모클래스명();
+	Child.prototype=new Parent();
+	
+	//prototype 으로 클래스에 변수, 함수 추가할 수 있다.
+	Child.prototype.age=0;
+	Child.prototype.setAge=function( age ){
+		this.age=age;
+	}//function
+	Child.prototype.getAge=function(){
+		return this.age;
+	}
+//자식클래스를 객체화
+var c=new Child();
+
+//호출
+//부모자원사용.
+c.setName("진재혁");
+//자식의 자원사용.
+c.setAddr("인천시");
+
+//부모자원 사용
+var name=c.getName();
+//자식의 자원사용.
+var addr=c.getAddr();
+
+//자식 클래스에 추가된 함수 호출
+c.setAge(26);
+var age=c.getAge();
+alert(name+" / "+ addr+" / "+ age);
+
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
