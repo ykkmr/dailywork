@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById("btn").addEventListener("click",setData);
+	document.getElementById("removeBtn").addEventListener("click",removeImg);
+	setDiv();
+}//function
+
+function setDiv(){
+	//스토리지에 저장된 값을 얻어와서 div에 설정
+	var lsDiv = document.getElementById("loc");
+	var ssDiv = document.getElementById("ses");
+	
+	//로컬스토리지는 브라우저가 종료 되더라도 값이 유지된다 (다음 접속시에 갑을 사용할 수 있다)
+	var ls_name = localStorage.getItem("ls_name"); //window생략
+	var ls_img = localStorage.getItem("ls_img"); //window생략
+	var lsOutput="<strong>" +ls_name+"님</strong><br><img src = '../common/images/"+ls_img+".jpg'/>";
+	if(ls_name == null){
+		lsOutput="로컬스토리지에 값이 없습니다";
+	}//end if
+
+	//저장된 JSONObject을 사용. AJAX
+	//문자열
+	var data = localStorage.getItem("ls_json");
+	alert( json2.name )
+	var json1 = eval("("+data+")");
+	try{
+		console.log("string : "+ json1.name + " / " + json1.img);
+	}catch(e){
+		console.log(e);		
+	}
+	
+	//세션스토리지는 브라우저가 종료되면 값이 사라진다 (다음 접속시에 갑을 사용할 수 없다)
+	var ss_name = sessionStorage.getItem("ss_name"); //window생략  
+	var ss_img = sessionStorage.getItem("ss_img"); //window생략
+	var ssOutput="<strong>" +ss_name+"님</strong><br><img src = '../common/images/"+ss_img+".jpg'/>"; //경로의 구분은 /로 하는데 빼먹었어요
+	if(ss_name == null){
+		ssOutput="세션스토리지에 값이 없습니다";
+	}//end if
+	
+	//출력할 이미지를 div에 설정한다
+	lsDiv.innerHTML=lsOutput;
+	ssDiv.innerHTML=ssOutput;
+}
+
+function setData(){
+	var obj = document.frm;
+	
+	if( obj.name.value == ""){
+		alert("이름은 필수 입력!");
+		obj.name.focus();
+		return;
+	}//end if
+	//라디오버튼이 체크되었는지 확인.
+	var img = "";
+	for(var i = 0 ; i < obj.img.length ; i++){
+		if(obj.img[i].checked){ //check가 아니고 checked
+			img = obj.img[i].value;
+			break;
+		}//end if
+	}//end for
+	
+	if(img == ""){
+		alert("좋아하는 이미지를 선택해주세요");
+		return;
+	}//end if
+	
+	var ls=window.localStorage;
+	var ss=window.sessionStorage;
+	
+	var data = "{name:'"+obj.name.value+"',img:'"+img+"'}";
+	//localStorage 의 값 설정
+	ls.setItem("ls_name", obj.name.value);
+	ls.setItem("ls_img", img);
+	ls.setItem("ls_json1", data); //쿠키처럼 문자열 데이터를 저장할 수 있다
+	ls.setItem("ls_json2", eval("("+data+")")); //쿠키와 다르게 객체가 저장될 수 있다
+	
+	//sessionStorage의 값 설정
+	ss.setItem("ss_name",obj.name.value);
+	ss.setItem("ss_img",img);
+	
+}//setData
+
+function removeImg(){
+	//로컬스토리지와 세션스토리지의 이미지 값을 삭제
+	localStorage.removeItem("ls_img");
+	sessionStorage.removeItem("ss_img");
+	setDiv();
+}//removeImg
+</script>
+</head>
+<body>
+<form action="" name="frm">
+<table>
+<tr>
+	<td colspan="5" style="text-align: center;"><h2>데이터를 입력해 주세요.</h2></td>
+</tr>
+<tr>
+<td><label>이름</label></td>
+<td colspan="4">
+<input type="text" name="name" class="inputBox"/>
+</td>
+</tr>
+<tr>
+<td><label>이미지선택</label></td>
+<td><img src="../common/images/포챠코1.jpg"/></td>
+<td><img src="../common/images/포챠코2.jpg"/></td>
+<td><img src="../common/images/포챠코3.jpg"/></td>
+<td><img src="../common/images/포챠코4.jpg"/></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="radio" value="포챠코1" name="img"/>1번이미지</td>
+<td><input type="radio" value="포챠코2" name="img"/>2번이미지</td>
+<td><input type="radio" value="포챠코3" name="img"/>3번이미지</td>
+<td><input type="radio" value="포챠코4" name="img"/>4번이미지</td>
+</tr>
+<tr>
+	<td colspan="5" style="text-align: center;">
+		<input type="button" value="입력" class="btn" id="btn"/>
+		<input type="button" value="이미지삭제" class="btn" id="removeBtn"/>
+	</td>
+</tr>
+</table>
+</form>
+<strong>localStorage값</strong>
+<div id = "loc"></div>
+<strong>sessionStorage값</strong>
+<div id = "ses"></div>
+
+</body>
+</html>
