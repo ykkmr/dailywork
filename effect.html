@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("#btnHid").click(function() {
+		$("#img1").hide();
+	});//click
+	
+	$("#btnShow").click(function() {
+		$("#img1").show();
+	});//click
+	
+	$("#btnHidShow").click(function() {
+		$("#img1").toggle();
+	});//click
+
+	$("#btnRed").click(function() {
+		$("#txt").css("color","#FF0000");
+	});//click
+
+	$("#btnBlue").click(function() {
+		$("#txt").css("color","#0000FF");
+	});//click
+	
+});//ready
+</script>
+</head>
+<body>
+<div style ="height: 252px">
+	<img src="../common/images/포챠코1.jpg" id="img1"/>
+	<img src="../common/images/포챠코2.jpg" id="img2"/>
+</div>
+<div>
+	<input type="button" value="숨기기1" class="btn" id="btnHid"/>
+	<input type="button" value="보이기1" class="btn" id="btnShow"/>
+	<input type="button" value="숨김/보이기" class="btn" id="btnHidShow"/>
+</div>
+<div id="txt">
+안녕하세요?
+</div>
+	<input type="button" value="빨간색" class="btn" id="btnRed"/>
+	<input type="button" value="파란색" class="btn" id="btnBlue"/>
+</body>
+</html>
