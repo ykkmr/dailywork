@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+img{ border:1px solid #333 }
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	//클릭
+	$("#clickEvt").click(function() {
+		alert("클릭!")
+	});
+	//커서가 빠져나가면 : blur, focusout
+	//$("#f_o").blur(function() {
+	$("#f_o").focusout(function() {
+		alert("커서나감!");
+	});
+	//커서가 들어오면
+	$("#f_i").focusin(function() {
+		alert("커서들어옴!")
+	});//focusif
+	
+	$("#k_d").keydown(function( evt ) {
+	//$("#k_d").keypress(function( evt ) {
+		var kdVal=document.frm.kd.value;
+		alert("키가 눌릴때 : "+ evt.which + " / 입력 글자 수 " + kdVal.length );
+	});//ketdown
+	
+	//키가 올라올 때
+	$("#k_u").keyup(function() {
+		alert("키가 올라올 때 : ");
+	});//keyup
+	
+	//select에서 다른 option이 선택될 때
+	$("#chg").change(function() {
+		alert("변경");
+	});//change
+	
+	//마우스포인터가 올라올때 : mouseover, mouseenter
+//	$("#m_u").mouseover(function() {
+	$("#m_u").mouseenter(function() {
+		alert("마우스 포인터가 올라왔음");
+	});//mouseover
+	
+	//마우스포인터가 빠져나갈때
+	$("#m_o").mouseout(function() {
+		alert("마우스 포인터가 빠져나갔음");
+	});//mouseout
+	
+});//ready
+</script>
+</head>
+<body>
+<div>
+<strong>이벤트</strong>
+<br/>
+<form name = "frm">
+<input type="button" value="클릭" class="btn" id="clickEvt"/><br/>
+<input type="text" value="커서가 빠져나가면" id="f_o"/><br/>
+<input type="text" value="커서가 들어오면" id="f_i"/><br/>
+<label>키눌릴때</label> <input type="text" id="k_d" name="kd"/><br/>
+<label>키올라올때</label> <input type="text" id="k_u"/><br/>
+<select id ="chg">
+<option>A</option>
+<option>B</option>
+</select><br/>
+<label>마우스포인터가 올라오면</label><img src="../common/images/포챠코1.jpg" id="m_u"/><br/>
+<label>마우스포인터가 빠져나오면</label><img src="../common/images/포챠코1.jpg" id="m_o"/><br/>
+</form>
+
+</div>
+
+</body>
+</html>
