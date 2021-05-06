@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+div{ border: 1px solid #333 }
+.dim{ width: 200px; height: 100px; background-color: #FF0000 }
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	//css 함수를 사용하여 두가지 속성 부여
+	$("#a").css("width","200px");
+	$("#a").css("height","100px");
+	//addClass함수를 사용하여 style태그에 정의한 class 부텨
+	$("#b").addClass("dim");
+	
+	//removeClass 함수를 사용하여 태그에 부여된 class를 제거
+	$("#c").removeClass("dim");
+	
+	$("#btn").click(function() {
+		$("#d").removeClass("dim");
+	});
+	$("#btn1").click(function() {
+		$("#d").removeClass("dim").addClass("dim"); //method 체인
+	});//click
+});//ready
+
+
+</script>
+</head>
+<body>
+<div id ="a"> css 함수 사용 </div>
+<div id ="b"> addClass 함수 사용 </div>
+<div id ="c" class="dim"> removeClass 함수 사용 </div>
+<div id ="d" class="dim"> 사용 </div>
+<input type="button" id="btn" value="클릭"/>
+<input type="button" id="btn1" value="클릭"/>
+
+</body>
+</html>
