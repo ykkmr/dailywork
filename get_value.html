@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#getValue").click(function() {
+	var output="";
+	//text
+	output+="text : " + $("#txt")
+	
+	});//click
+
+});//ready
+</script>
+</head>
+<body>
+<div>
+<form action="#" name="frm">
+<strong>값변경</strong>
+<div>
+<label>text</label><input type="text" name="txt" class="inputBox" id="txt"/><br/>
+<label>password</label><input type="password" name="pass" class="inputBox" id="pass"/><br/>
+<label>hidden</label><input type="hidden" name="hid" id="hid"/><br/>
+<label>file</label><input type="file" name="file" id="file"/><br/>
+ <img src="../common/images/포챠코1.jpg" name="img" id="img"/><br/>
+ <label>textarea</label>
+ <textarea name="ta" class="inputBox" style="width: 300px;height: 80px"id="ta"></textarea><br/>
+ 
+ <input type="button" value="값설정" class="btn" id="btnSetValue" id="btnSetValue"/>
+</div>
+<strong>상태변경</strong>
+<div>
+<label>언어선택</label>
+<input type="checkbox" name="lang" value="Java" class = "lang"/>Java
+<input type="checkbox" name="lang" value="C/C++" class = "lang"/>C/C++
+<input type="checkbox" name="lang" value="VB" class = "lang"/>VB
+
+<input type="checkbox" name="lang" value="Python" class = "lang"/>Python
+<br/>
+<input type="radio" name="gender" value="남자" id="m"/>남자
+<input type="radio" name="gender" value="여자" id="f"/>여자
+<br/>
+<select name="company" id="company">
+	<option>---선택---</option>
+	<option value="SKT">SKT</option>
+	<option value="KTF">KTF</option>
+	<option value="LGT">LGT</option>
+</select>
+<br/>
+<input type="button" value="설정" class="btn" id="getValue"/>
+</div>
+</form>
+</div>
+
+<div id="output" style="border: 1px solid #333; width: 400px; height: 100px; overflow: auto;"></div>
+
+</body>
+</html>
+
+
+
+
