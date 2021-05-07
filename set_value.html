@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,39 +7,36 @@
 <style type="text/css">
 
 </style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-function setValue(){
-	var obj=document.frm;
-	//value속성으로 값을 설정.
-	obj.txt.value="곽범수";
-	obj.pass.value="곽범수";
-	obj.hid.value="히든태그에 값 설정";
-//	obj.file.value="c:/dev/env.bat"; //file 에는 값을 설정할 수 없다.
-	obj.img.src="../common/images/header.png";
-	obj.ta.value="오늘 저녁에는 비바람과 함께 황사비가 예정되어있습니다.\n내일은 맑습니다.\n토요일 오전에는 황토의 기운을 느낄 수 있는 황사비가 예정.";
-}//setValue
-
-function changeStatus(){
-	var obj=document.frm;
+$(function(){
+	$("#btnSetValue").click(function() {
+		//$("[name='txt']").val("오늘은 금요일");		
+		$("#txt").val("오늘은 금요일");
+		$("#pass").val("오늘은 금요일");
+		$("#hid").val("오늘은 금요일");
+		//$("#file").val("c:/dev/eclipse.bat"); --> file은 value를 설정할 수 없다
+		//$("#img").val("../common/images/포챠코2.jpg"); --> image는 value로 이미지 변경할 수 없다
+		//img는 attr함수로 src속성을 변경하여 로딩된 이미지를 변경해준다
+		$("#img").attr("src","../common/images/포챠코2.jpg");
+		$("#ta").val("오늘은 금요일\n내일은 퇼");
+	});//click
 	
-	//checkbox 설정
-	obj.lang[0].checked=true;
-	obj.lang[3].checked=true;
-	//radio
-	obj.gender[0].checked=true;
-	//select
-	obj.company[2].selected=true;
-	
-}//changeStatus
+		//상태변환
+		$("#btnSetStatus").click(function() {
+			//체크박스
+			$("#java").attr("checked",true);
+			$("#python").attr("checked",true);
+			//radio
+			$("#f").prop("checked",true);
 
-function chk() {
-	var obj = document.frm1;
+			//select
+			$("#ktf").prop("selected",true);
+			
+	});//click
 	
-	for(var i = 0 ; i < obj.content.length ; i ++){
-		obj.content[i].checked=obj.flag.checked;
-	}//end for
-}//chk
-
+});//ready
 </script>
 </head>
 <body>
@@ -48,26 +44,27 @@ function chk() {
 <form action="#" name="frm">
 <strong>값변경</strong>
 <div>
-<label>text</label><input type="text" name="txt" class="inputBox"/><br/>
-<label>password</label><input type="password" name="pass" class="inputBox"/><br/>
-<label>hidden</label><input type="hidden" name="hid"/><br/>
-<label>file</label><input type="file" name="file"/><br/>
- <img src="../common/images/img1.png" name="img"/><br/>
+<label>text</label><input type="text" name="txt" class="inputBox" id="txt"/><br/>
+<label>password</label><input type="password" name="pass" class="inputBox" id="pass"/><br/>
+<label>hidden</label><input type="hidden" name="hid" id="hid"/><br/>
+<label>file</label><input type="file" name="file" id="file"/><br/>
+ <img src="../common/images/포챠코1.jpg" name="img" id="img"/><br/>
  <label>textarea</label>
- <textarea name="ta" class="inputBox" style="width: 300px;height: 80px"></textarea><br/>
+ <textarea name="ta" class="inputBox" style="width: 300px;height: 80px"id="ta"></textarea><br/>
  
- <input type="button" value="값설정" class="btn" onclick="setValue()"/>
+ <input type="button" value="값설정" class="btn" id="btnSetValue" id="btnSetValue"/>
 </div>
 <strong>상태변경</strong>
 <div>
 <label>언어선택</label>
-<input type="checkbox" name="lang" value="Java"/>Java
-<input type="checkbox" name="lang" value="C/C++"/>C/C++
-<input type="checkbox" name="lang" value="VB"/>VB
-<input type="checkbox" name="lang" value="Python"/>Python
+<input type="checkbox" name="lang" value="Java" id="java"/>Java
+<input type="checkbox" name="lang" value="C/C++" id="c"/>C/C++
+<input type="checkbox" name="lang" value="VB" id="vc"/>VB
+
+<input type="checkbox" name="lang" value="Python" id="python"/>Python
 <br/>
-<input type="radio" name="gender" value="남자"/>남자
-<input type="radio" name="gender" value="여자"/>여자
+<input type="radio" name="gender" value="남자" id="m"/>남자
+<input type="radio" name="gender" value="여자" id="f"/>여자
 <br/>
 <select name="company">
 	<option>---선택---</option>
@@ -76,24 +73,13 @@ function chk() {
 	<option value="LGT">LGT</option>
 </select>
 <br/>
-<input type="button" value="설정" class="btn" onclick="changeStatus()"/>
+<input type="button" value="설정" class="btn" id="btnSetStatus"/>
 </div>
 </form>
 </div>
 
 <div>
-<form action="#" name="frm1">
-<input type="checkbox" name="flag" onclick="chk()"/><br/>
-<input type="checkbox" name="content" />오늘은 월요일<br/>
-<input type="checkbox" name="content" />오늘은 화요일<br/>
-<input type="checkbox" name="content" />오늘은 수요일<br/>
-<input type="checkbox" name="content" />오늘은 목요일<br/>
-<input type="checkbox" name="content" />오늘은 금요일<br/>
-<input type="checkbox" name="content" />오늘은 토요일<br/>
-<input type="checkbox" name="content" />오늘은 일요일<br/>
 
-
-</form>
 </div>
 
 </body>
