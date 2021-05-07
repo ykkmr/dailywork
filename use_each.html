@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$("#getValue").click(function(){
+		var output="";
+		//text
+		output+="text : "+ $("#txt").val()+"<br/>";
+		//password
+		output+="password : "+ $("#pass").val()+"<br/>";
+		//hidden
+		output+="hidden : "+ $("#hid").val()+"<br/>";
+		//file
+		output+="file : "+ $("#file").val()+"<br/>";
+		//img
+		output+="img  attr : "+ $("#img").attr("src")+"<br/>";
+		output+="img prop : "+ $("#img").prop("src")+"<br/>";
+		//textarea
+		output+="textarea : "+ $("#ta").val()+"<br/>";
+		//select
+		output+="select : "+ $("#company").val()+"<br/>";
+	
+		alert( $(".lang:checked").length );
+		//같은 이름의 Form Control을 찾아서 반복
+		output += "checkbox : "
+		/*
+		$(".lang").each(function(i, chk) { //class가 lang인 Form Control을 모두 반복
+			//is() 체크상태를 boolean으로 얻을 수 있다
+			if( $(this).is(":checked") ){ //선택된 값이 true인 Control을 비교하고
+				output+= $(this).val() + " "; //값을 얻어야한다
+			}
+		});
+		*/
+		$(".lang :checked").each(function() {//checkbox중 checked된 것만 얻기
+			output += $(this).val()+" ";
+		});//each
+		
+		if( $(".gender:checked").length ==0){
+			alert("성별을 선택해 주세요");
+			return;
+		}//end if
+		output+= "<br/>radio : " + $(".gender:checked").val();
+	
+		
+		$("#output").html( output );
+	});//click
+	
+});//ready
+</script>
+</head>
+<body>
+<div>
+<form action="#" name="frm">
+<strong>값얻기</strong>
+<div>
+<label>text</label><input type="text" name="txt" class="inputBox" id="txt"/><br/>
+<label>password</label><input type="password" name="pass" class="inputBox" id="pass"/><br/>
+<label>hidden</label><input type="hidden" name="hid" id="hid" value="오늘은 금요일"/><br/>
+<label>file</label><input type="file" name="file" id="file"/><br/>
+ <img src="../common/images/포챠코1.jpg" name="img" id="img"/><br/>
+ <label>textarea</label>
+ <textarea name="ta" class="inputBox" style="width: 300px;height: 80px" id="ta"></textarea><br/>
+ 
+<label>언어선택</label>
+<input type="checkbox" name="lang" value="Java"  class="lang"/>Java
+<input type="checkbox" name="lang" value="C/C++" class="lang"/>C/C++
+<input type="checkbox" name="lang" value="VB" class="lang"/>VB
+<input type="checkbox" name="lang" value="Python" class="lang"/>Python
+<br/>
+<input type="radio" name="gender" value="남자" class="gender"/>남자
+<input type="radio" name="gender" value="여자" class="gender"/>여자
+<br/>
+<select name="company" id="company">
+	<option>---선택---</option>
+	<option value="SKT">SKT</option>
+	<option value="KTF">KTF</option>
+	<option value="LGT">LGT</option>
+</select>
+<br/>
+<input type="button" value="값얻기" class="btn" id="getValue"/>
+</div>
+</form>
+</div>
+
+<div id="output" style="border:1px solid #333; width: 400px;height: 100px;overflow: auto;"></div>
+
+</body>
+</html>
+
+
+
+
