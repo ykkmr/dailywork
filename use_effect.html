@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("#btnHid").click(function() {
+//		$("#img").fadeOut(1000);
+		$("#img").fadeOut(1000, function() {
+			alert("숨김완료");
+		});
+	});
+	$("#btnShow").click(function() {
+//		$("#img").fadeIn(1000);
+		$("#img").fadeIn(1000, function() {
+			alert("보이기완료");
+		});
+	});
+	
+	$("btnShowHid").click(function() {
+		for( var i = 0 ; i < 10 ; i ++){			
+		$("#img").fadeOut(500).fadeIn(500);
+		}//end for
+	}); //click
+	
+	$("#btnSlideHid").click(function() {
+		$("#img").slideUp(1000);
+	});//click
+
+	$("#btnSlideShow").click(function() {
+		$("#img").slideDown(1000);
+	});//click
+
+	$("#btnSlideToggle").click(function() {
+		$("#img").slideToggle(1000);
+	});//click
+});//ready
+</script>
+</head>
+<body>
+<div style="height: 300px">
+<img src="../common/images/포챠코1.jpg"id="img"/>
+</div>
+<input type="button" value="숨기기" class="inputBox" id="btnHid"/>
+<input type="button" value="보이기" class="inputBox" id="btnShow"/>
+<input type="button" value="보이기/숨기기" class="inputBox" id="btnShowHid"/>
+<input type="button" value="접어숨기기" class="inputBox" id="btnSlideHid"/>
+<input type="button" value="펼쳐보이기" class="inputBox" id="btnSlideShow"/>
+<input type="button" value="접어숨기기/펼쳐보이기" class="inputBox" id="btnSlideToggle"/>
+</body>
+</html>
