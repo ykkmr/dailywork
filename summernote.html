@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<!-- summernote -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- summernote -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	  $('#summernote').summernote({
+		  height: 400,                 // set editor height
+		  minHeight: 250,             // set minimum height of editor
+		  maxHeight: 500,             // set maximum height of editor
+		  focus: true,
+		  placeholder: '이 새벽감성으로 룩북을 써보아요',
+		  toolbar: [
+	          ['style', ['style']],
+	          ['font', ['bold', 'underline', 'clear']],
+	          ['color', ['color']],
+	          ['insert', ['picture']],
+	        ]
+	  });
+	});
+</script>
+</head>
+<body>
+<div style="width: 730px; height: 550px">
+<form method="post">
+  <textarea id="summernote" name="editordata"></textarea>
+</form>
+</div>
+</body>
+</html>
