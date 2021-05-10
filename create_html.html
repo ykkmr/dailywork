@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+div{ border:1px solid #333; width: 400px;height: 200px; margin-bottom: 20px }
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#setHTML").click(function(){
+		var output="<strong>생성된 HTML</strong>";
+		$("#html").html( output );// 태그가 해석되어 그려서 보여진다.
+	});//click
+	$("#setTEXT").click(function(){
+		var output="<strong>생성된 HTML</strong>";
+		$("#text").text( output );//태그가 해석되지 않고 그대로 보여진다.
+	});//click
+	$("#getHTML").click(function(){
+		var html=$("#html").html(); //HTML 태그를 가져와서 
+		$("#output").html( html ); //   HTML로 출력
+	});//click
+	$("#getTEXT").click(function(){
+		var text = $("#text").text( );//
+		$("#output").html( text ); //   HTML로 출력
+	});//click
+	
+});//ready
+</script>
+</head>
+<body>
+<div id="html">HTML</div>
+<div id="text">TEXT</div>
+
+<input type="button" value="HTML설정" id="setHTML"/>
+<input type="button" value="TEXT설정" id="setTEXT"/>
+<input type="button" value="HTML얻기" id="getHTML"/>
+<input type="button" value="TEXT얻기" id="getTEXT"/>
+
+<div id="output">출력</div>
+</body>
+</html>
