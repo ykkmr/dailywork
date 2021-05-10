@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.153/html_prj/common/css/main.css"/>
+<style type="text/css">
+#tab{ border: 1px solid #333; border-spacing: 0px }
+th,td{ border: 1px solid #333; height: 30px; vertical-align: middle; }
+#numTitle{ width: 80px; }
+#nameTitle{ width: 200px; }
+#emailTitle{ width: 250px; }
+</style>
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+var arr=new Array();
+arr[0]=["강인섭","kang@sist.co.kr"];
+arr[1]=["이학민","lee@naver.com"];
+arr[2]=["진재혁","jin@daum.net"];
+$(function() {
+	var cnt=0;
+	$("#btnAdd").click(function() {
+		if(cnt == 3){
+		alert("더이상 추가할 데이터가 없습니다");
+		return;
+		}//end if
+		
+		var output="<tr><td>"+(cnt+2)+"</td><td>"+arr[cnt][0]+"</td><td>"+arr[cnt][1]+"</td></tr>";
+		
+		
+		$("#tab:last").append( output );
+		cnt++;
+	});//click
+	
+		$("#btnRemove").click(function() {
+			var len=$("#tab").find("tr").length;
+			if( len == 1){
+				alert("삭제할 행이 없습니다");
+				return;
+			}//end if
+			$("#tab tr:last").remove();
+			cnt=len-2;
+		});//click;
+});//ready
+</script>
+</head>
+<body>
+<input type="button" value="추가" class="btn" id ="btnAdd"/>
+<input type="button" value="삭제" class="btn" id="btnRemove"/>
+<br/>
+<table id="tab">
+<tr>
+	<th id="numTitle">번호</th>
+	<th id= "nameTitle">이름</th>
+	<th id= "emailTitle">이메일</th>
+</tr>
+<tr>
+	<td>1</td>
+	<td>곽범수</td>
+	<td>kwak@test.com</td>
+</tr>
+</table>
+
+</body>
+</html>
