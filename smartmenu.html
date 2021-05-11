@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://211.63.89.153/html_prj/common/css/main.css"/>
+
+<!-- SmartMenus core CSS (required) -->
+<link href='http://localhost/html_prj/common/smartmenu/css/sm-core-css.css' rel='stylesheet' type='text/css' />
+<!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+<link href='http://localhost/html_prj/common/smartmenu/css/sm-blue/sm-blue.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost/html_prj/common/smartmenu/css/sm-clean/sm-clean.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost/html_prj/common/smartmenu/css/sm-mint/sm-mint.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost/html_prj/common/smartmenu/css/sm-simple/sm-simple.css' rel='stylesheet' type='text/css' />
+
+<style type="text/css">
+	#wrap{ width: 900px; height: 1000px; margin:0px auto; }
+	/* header 시작*/
+	#header{ width: 900px; height: 215px; position:relative; 
+	           background: url(http://211.63.89.130/html_prj/common/images/header.png) #FFFFFF repeat-x }
+	#headerTitle{ width: 400px; height: 60px;position:absolute;top:40px;left:250px;
+				font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 50px }
+	#navibar{ height: 55px; position: absolute; top:160px;}
+	/* header 끝*/
+	/* container 시작*/
+	#container{ width: 900px; height: 700px; } 
+	/* container 끝*/
+	/* footer 시작*/
+	#footer{ width: 900px; height: 140px; }
+	#footerTitle{ width: 450px; height: 30px;float:right;margin-right:20px;margin-top:40px;
+			font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 20px  }
+	/* footer 끝*/
+	
+</style>
+
+<!-- jQuery CDN(Contents Delivery Network) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!-- SmartMenus jQuery plugin -->
+<script src="http://localhost/html_prj/common/smartmenu/jquery.smartmenus.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(function() {
+	  $('#main-menu').smartmenus();
+	});
+</script>
+
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<div id="headerTitle">
+			Class 4. Design
+		</div>
+		<div id="navibar">
+		      <!-- Sample menu definition -->
+      <ul id="main-menu" class="sm sm-clean" style="width: 900px">
+        <li><a href="http://localhost/html_prj/jquery0511/smartmenu.html/">Home</a></li>
+        <li><a href="#void">검색</a>
+          <ul>
+            <li><a href="http://localhost/html_prj/jquery0511/postcode.html">우편번호검색</a></li>
+            <li><a href="#void">회원검색</a></li>
+            <li><a href="#void">사원검색</a></li>
+          </ul>
+        </li>
+        <li><a href="#void">김본좌</a></li>
+        <li><a href="#void">문서</a></li>
+        <li><a href="#">Mega menu</a>
+          <ul class="mega-menu">
+            <li>
+              <!-- The mega drop down contents -->
+              <div style="width:400px;max-width:100%;">
+                <div style="padding:5px 24px;">
+                  <p>메가메뉴</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>		
+		</div>	
+	</div>
+	<div id="container">
+	
+	</div>
+	<div id="footer">
+		<div id="footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
