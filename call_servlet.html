@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+ <!-- bootstrap -->
+ <link href="http://localhost/html_prj/common/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- jQuery CDN(Contents Delivery Network) -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+ <script src="http://localhost/servlet_prj/common/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+<style type="text/css">
+#get, #post{ border: 1px solid #333; width: 300px; height: 240px; margin-bottom: 10px; }
+</style>
+<script type="text/javascript">
+$(function() {
+	$("#btnGet").click(function() {
+		$("#frmGet").submit();
+	})//click
+	$("#btnPost").click(function() {
+		$("#frmPost").submit();
+	})//click
+})//ready
+</script>
+</head>
+<body>
+<div id = "get">
+<h3><span class="label label-primary">GET방식 요청</span></h3>
+링크 : <a href="http://localhost/servlet_prj/call_servlet">GET방식 요청</a><br/>
+폼태그 submit 요청 :
+<form id ="frmGet" action="http://localhost/servlet_prj/call_servlet" method = "get"><!-- 서블릿에서 <url-pattern>이 대문자로 되어있었습니다.  -->
+	<input type="submit" value="GET요청" class = "btn btn-success" id="btnGet"/>
+</form>
+</div>
+<div id = "post">
+<h3><span class="label label-primary" >POST방식 요청</span></h3>
+<form id ="frmPost" action="http://localhost/servlet_prj/call_servlet" method = "POST">
+	<input type="submit" value="POST요청" class = "btn btn-success" id="btnPost"/>
+</form>
+
+</div>
+
+</body>
+</html>
