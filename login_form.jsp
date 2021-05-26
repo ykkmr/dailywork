@@ -1,5 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+    <%
+    //Cookie 사용
+    // 읽기 : 접속자가 들어오면 접속자에 생성되어있는 모든 쿠키를 읽는다 (다른서버에서 심은 쿠키는 읽어들일 수 없다)
+    Cookie[] cookies=request.getCookies();
+    
+    String cookieId="";
+    if(cookies != null){//읽어들인 쿠키가 존재?
+    	Cookie temp = null;
+    		
+    		for(int i=0 ; i < cookies.length ; i ++){
+    		//쿠키얻기
+    		temp=cookies[i];
+    		//out.println( temp.getName() + " / " + temp.getValue() );
+    		if("save_id".equals(temp.getName())){ //쿠키의 이름이 save_id 라면
+    			cookieId=temp.getValue();//save_id에 값을 얻어와서 저장
+    		}//end if
+    	}//end for
+    }//end if
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +78,8 @@ function chkNull(){
 	<td colspan="2"><h3>로그인</h3></td>
 </tr>
 <tr>
-	<td><input type="text" name="id" id="id" tabindex="1"/></td>
+	<td><input type="text" name="id" id="id" tabindex="1" value="<%=cookieId %>"/></td>
+	<td><input type="checkbox" name="idFlag" <%= "".equals(cookieId)?"":" checked='checked'" %>/>아이디저장</td>
 	<td rowspan="2"><input type="button" value="로그인" id="logBtn" tabindex="3"/></td>
 </tr>
 <tr>
