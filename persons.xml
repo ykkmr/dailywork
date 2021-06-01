@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE persons SYSTEM "person.dtd">
+<persons>
+<person>
+	<name>테스트</name><!--  name은 0~1개 정의 될 수 있다 -->
+	<!-- <name>테스트1</name> --><!--  name은 0~1개 정의 될 수 있다 -->
+	<age></age>
+	<addr></addr>
+	<m/>
+</person>
+<person>
+	<name>테스트</name><!--  name은 0~1개 정의 될 수 있다 -->
+	<!-- <name>테스트1</name> --><!--  name은 0~1개 정의 될 수 있다 -->
+	<age></age><!-- age는 1~n개가 정의 될 수 있다 -->
+	<age></age><!-- age는 1~n개가 정의 될 수 있다 -->
+	<age></age><!-- age는 1~n개가 정의 될 수 있다 -->
+	<addr></addr>
+	<m/>
+</person>
+<person>
+	<name>테스트</name><!--  name은 0~1개 정의 될 수 있다 -->
+	<!-- <name>테스트1</name> --><!--  name은 0~1개 정의 될 수 있다 -->
+	<age></age><!-- age는 1~n개가 정의 될 수 있다 -->
+	<addr></addr>
+	<f/>
+</person>
+</persons>
