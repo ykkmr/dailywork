@@ -1,21 +1,12 @@
-<%@page import="java.util.Calendar"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%
-// forward_a.jsp에서 처리된 결과를 받아 출력화면을 만든다
-List<String> list=(List<String>)request.getAttribute("data");
-Calendar cal=(Calendar)request.getAttribute("cal");
-String name=(String)request.getAttribute("name");
-
-%>
+    pageEncoding="UTF-8" info="처리된 데이터를 받아와서 사용자에게 보여주는 일" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title><%=name %>님 안녕하세요?</title>
+ <title></title>
  <!-- bootstrap -->
  <link href="http://localhost/jsp_prj/common/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -31,23 +22,27 @@ String name=(String)request.getAttribute("name");
 </head>
 <body>
 <div>
-<select>
-<option>---선택---</option>
-<% for(int i = 0; i < list.size(); i++){ %>
-<option value="<%=list.get(i) %>"><%=list.get(i) %></option>
-<%}//end for %>
-</select>
-<br/>
-<!-- cal객체를 사용하여 select에  -->
-<% int nowYear=cal.get(Calendar.YEAR); %>
-<select>
-<% for(int i = -2; i < 3; i++){ %>
-<option value="<%=nowYear+i %>"<%=nowYear==nowYear+i?" selected='selected'":"%>><%= request
-<%}//end for %>
-</select>
-<br/>
-
-
+사용자에게 보여줄 내용(forward_b.jsp)<br/>
+<a href="forward_a.jsp?name=테스트">forward_a 요청</a>
+<div>
+forward_a.jsp로 요청한 parameter : <%= request.getParameter("name") %>
+</div>
+<div>
+forward_a.jsp에서 생성한 parameter : 
+<%= request.getParameter("age") %><br/>
+<%= request.getParameter("addr") %><br/>
+</div>
+<div>
+<%
+	//request객체의 속성값으로 할당되어 전송되는 값 받기
+	String[] names = (String[])request.getAttribute("names");
+	for( int i = 0 ; i < names.length ; i ++ ){
+		%>
+		<li><%= names[i] %></li>
+		<%
+	}//end for
+%>
+</div>
 </div>
 </body>
 </html>
