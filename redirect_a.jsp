@@ -1,5 +1,14 @@
+<%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%
+   	boolean flag= new Random().nextBoolean();
+   request.setAttribute("flag", flag);
+   %>
+   <c:if test="${ flag }"><!-- 로그인 후에만 존재하는 세션이 있는가? -->
+   <!--  없다면 인증페이지로 이동 -->
+   		<c:redirect url="redirect_b.jsp"/>
+   		</c:if>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +31,7 @@
 </head>
 <body>
 <div>
-<a href="redirect_b.jsp?flag=true">정상적인 요청 상황(페이지를 요청할 때 로그인을 수행한 이후)</a>
-<a href="redirect_b.jsp">비정상적인 요청 상황(페이지를 요청할 때 로그인을 수행하지 않고 URL만 붙여넣은 상황)</a>
+
 </div>
 </body>
 </html>
