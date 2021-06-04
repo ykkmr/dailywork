@@ -22,37 +22,30 @@
 </head>
 <body>
 <div>
-연산식 <br/>
-<ul>
-<li><strong>산술연산자</strong></li>
-<li>6+3= ${ 6+3 }</li>
-<li>6-3= ${ 6-3 }</li>
-<li>6*3= ${ 6*3 }</li>
-<li>6/4= ${ 6/4 }</li><!-- EL에서는 나눈 결과가 실수로 나온다 -->
-<li>6%2= ${ 6%2 }( ${ 6 mod 2 } )</li>
-<li><strong>관계연산자</strong></li>
-<li> 6 > 3 = ${ 6 > 3 } ( ${ 6 gt 3 } )</li>
-<li> 6 > 3 = ${ 6 > 3 } ( ${ 6 lt 3 } )</li>
-<li> 6 >= 3 = ${ 6 >= 3 } ( ${ 6 ge 3 } )</li>
-<li> 6 <= 3 = ${ 6 <= 3 } ( ${ 6 le 3 } )</li>
-<li> 6 == 3 = ${ 6 == 3 } ( ${ 6 eq 3 } )</li>
-<li> 6 != 3 = ${ 6 != 3 } ( ${ 6 ne 3 } )</li><!-- ne는 eclipse 버그 -->
-<li><strong>논리연산자</strong></li>
-<li> true && true = ${ true && true }( $( true and true ))</li>
-<li> false || false = ${ false && false }( $( false or false ))</li>
-<li><strong>삼항연산자</strong></li>
-<li> 2는 ${ 2 % 2 == 0?"짝수":"홀수"}</li><!-- EL에서 문자열은 "와 '를 모두 사용할 수 있다 -->
-<li> 2는 ${ 2 mod 2 eq 0?'짝수':'홀수'}</li><!-- EL에서 문자열은 "와 '를 모두 사용할 수 있다 -->
-<li><strong>파라메터받기</strong></li>
-<li>이름 : ${ param.name }</li>
-<li><a href = "use_el.jsp?name=테스트">요청</a></li>
-<li>
-	<form action="use_el.jsp">
-		<input type="text" name="name" placeholder="이름입력">
-		<input type="submit" value="전송">
-	</form>
-</li>
-</ul>
+<%!
+	String name="진재혁";
+%>
+EL : ${ name }<br/><!-- EL에서는 변수에 직접 접근할 수 없다 -->
+표현식 : <%= name %>
+<div>
+<%
+	//page scope객체 값 설정. 값은 이 페이지에서만 사용
+	pageContext.setAttribute("pageName", name); 
+	//request scope 객체에 값 설정. 값은 이페이지와 forward로 이동한 페이지에서 사용
+	request.setAttribute("reqName", name);
+	//session scope 객체에 값 설정. 값은 접속자마다 따로 사용되고, 모든 페이지에서 사용
+	session.setAttribute("sesName", name);
+	//application scope 객체에 값 설정. 최초 페이지를 요청한 접속자가 객체를 생성하며,
+	//모든 접속자가 모든 페이지에서 값을 사용 (하나만 생성)
+	application.setAttribute("appName", name);
+%>
+<%-- <jsp:forward page="use_el2.jsp"/> --%>
+pageScope : <strong>${ pageScope.pageName }</strong>(${ pageName })<br/>
+requestScope : <strong>${ requestScope.reqName }</strong>(${ reqName })<br/>
+sessionScope : <strong>${ sessionScope.sesName }</strong>(${ sesName })<br/>
+applicationScope : <strong>${ applicationScope.appName }</strong>(${ appName })<br/>
+<a href="use_el2.jsp">scope객체에 설정된 값 읽기</a>
+</div>
 </div>
 </body>
 </html>
