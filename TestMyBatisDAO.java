@@ -31,7 +31,7 @@ public class TestMyBatisDAO {
 //				ss.commit(); //transaction을 완료
 //			}
 //			System.out.println( cnt + "건 추가");
-			List<EmpDomain> list = ss.selectList("selectEmp",310);
+			List<EmpDomain> list = ss.selectList("kr.co.sist.examMapper.selectEmp",30);
 			if( list.isEmpty() ) {
 				System.out.println("부서가 존재하지 않거나, 부서의 사원이 없습니다");
 			}
