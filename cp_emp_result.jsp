@@ -19,21 +19,21 @@
 </style>
 <script type="text/javascript">
 
-<c:choose>
-	<c:when test="${ cnt eq 1 }">
-		alert("${ param.empno }번 사원정보를 삭제하였습니다");
-	</c:when>
-	<c:otherwise>
-	alert("${ param.empno }번 사원정보를 삭제 못하였습니다");
-	</c:otherwise>
-</c:choose>
-	location.href="http://localhost/spring_mybatis/index.html";
-	
 </script>
 </head>
 <body>
 <div>
-
+<ul>
+	<c:out value="${ param.ename }"/>님의 데이터가<br/> 
+	<c:choose>
+		<c:when test="${ cnt eq 1 }">
+		변경 되었습니다
+		</c:when>
+		<c:otherwise>
+		변경하지 못하였습니다. 사원번호를 확인해주세요
+		</c:otherwise>
+	</c:choose>
+</ul>
 </div>
 </body>
 </html>
