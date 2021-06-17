@@ -1,16 +1,15 @@
 package kr.co.sist.vo;
 
+/**
+ * Web Parameter가 입력 될 때 Spring Framework에서 VO의 기본생성자를 사용하여
+ * 객체화하고 setter method 호출하여 값을 넣어주고, 값을 가진 객체를
+ * Controller method에 넣어준다
+ * @author user
+ */
 public class CpEmp1VO {
 	private int empno, deptno, sal;
 	private String  ename, job;
 
-	public CpEmp1VO(int empno, int deptno, int sal, String ename, String job) {
-		this.empno = empno;
-		this.deptno = deptno;
-		this.sal = sal;
-		this.ename = ename;
-		this.job = job;
-	}
 	
 	public int getEmpno() {
 		return empno;
