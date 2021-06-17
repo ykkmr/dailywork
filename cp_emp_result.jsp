@@ -27,10 +27,10 @@
 	<c:out value="${ param.ename }"/>님의 데이터가<br/> 
 	<c:choose>
 		<c:when test="${ cnt eq 1 }">
-		변경 되었습니다
+		가 추가 되었습니다
 		</c:when>
 		<c:otherwise>
-		변경하지 못하였습니다. 사원번호를 확인해주세요
+		추가되지 않았습니다.
 		</c:otherwise>
 	</c:choose>
 </ul>
