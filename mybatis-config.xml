@@ -18,5 +18,7 @@
   </environments>
   <mappers>
      <mapper resource="kr/co/sist/mapper/examMapper.xml"/>
+     <mapper resource="kr/co/sist/mapper/selectMapper.xml"/>
+     <mapper resource="kr/co/sist/mapper/selectMapper2.xml"/>
   </mappers>
 </configuration>
