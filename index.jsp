@@ -56,6 +56,7 @@ function removeEmp( empno ){
 	<a href="#void" onclick="removeEmp(${ empno })"><c:out value="${ empno }"/></a>
 	</c:forEach>
 	</li>
+	<li><a href="select/select_menu.do">조회사용</a></li>
 </ul>
 </div>
 </body>
