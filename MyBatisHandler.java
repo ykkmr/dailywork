@@ -9,12 +9,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class MyBatisHandler {
-
 	private static MyBatisHandler mbh;
 	private static SqlSessionFactory ssf;
 	
 	private MyBatisHandler() {
-		
+		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
 	}
 	
 	public static MyBatisHandler getInstance() {
