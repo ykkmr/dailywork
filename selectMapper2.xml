@@ -3,9 +3,67 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.sist.selectMapper2">
+<resultMap type="kr.co.sist.domain.BoardDomain" id="bdResult">
+<result column="model" property="model"/>
+<result column="car_year" property="car_year"/>
+<result column="car_option" property="car_option"/>
+<result column="hiredate" property="hiredate"/>
+</resultMap>
+<!-- typeAlias에 등록된 alias를 resultMap에서 사용할 수 있다 -->
+<resultMap type="jd" id="jdResult">
+<result column="deptno" property="deptno"/>
+<result column="dname" property="dname"/>
+<result column="loc" property="loc"/>
+<result column="empno" property="empno"/>
+<result column="name" property="name"/>
+<result column="job" property="job"/>
+<result column="sal" property="sal"/>
+<result column="hiredate" property="hiredate"/>
+</resultMap>
+
+<!-- 게시판 List를 구현 -->
+<!-- 총 게시물의 수 : ( 검색 값이 있다면 검색되는 게시물의 총 수 ) -->
+<select id="selectTotalCount" resultType="Integer">
+select		count(*) cnt
+from		car_model
+</select>
 	 <!-- subquery -->
-	 <!-- join -->
-	 <!-- subquery & join -->
-	 <!-- 테이블 명이 동적인 경우 -->
+	 <select id="subquery" resultMap="bdResult" parameterType="kr.co.sist.vo.boardVO">
+		select model, car_year, car_option, to_char(hiredate, 'yyyy-mm-dd day') hiredate
+		from ((select model, car_year, car_option, hiredate,
+	 					row_number() over(order by hiredate desc) rnum
+						from car_model))
+		where rnum between #{ startNum } and #{ endNum }
+	 </select>
+	 <!-- join : 부서번호, 부서명, 위치, 사원번호, 사원명, 직무, 연봉, 입사일 조회
+	 typeAlias : config.xml에 정의하고 모든 mapper에서 짧은 이름으로 클래스를 사용할 때 
+	 (jd는 config.xml에서 정의된 이름)
+	  -->
+	 <select id="join" resultType="jd">
+		select d.deptno, d.dname, d.loc, e.empno, e.ename, e.job, e.sal, to_char(e.hiredate, 'mm-dd-yyyy') hiredate
+		from 	dept d, emp e
+		where (e.deptno=d.deptno)
+	 </select>
+	 
+	 <!-- subquery & join : 
+	 신입사원부터 10명의 사원만 조회
+	 부서번호, 부서명, 위치, 사원번호, 사원명, 직무, 연봉, 입사일 조회 
+	 -->
+	 <select id="subquery_join" resultMap="jdResult">
+	 select deptno, dname, loc, empno, ename, job, sal, to_char(hiredate, 'yyyy-mm-dd q"분기" dy') hiredate
+	 from(select d.deptno, d.dname, d.loc, e.empno, e.ename, e.job, e.sal, hiredate,
+				row_number() over(order by hiredate desc) rnum
+		from 	dept d, emp e
+		where (e.deptno=d.deptno))
+	 where rnum between 1 and 10
+	 </select>
+	 <!-- 테이블 명이 동적인 경우
+	 		parameterType이 VO이어야 하며, #{}이 아닌 ${ } 이어야 한다.
+	  -->
+	 <select id="dynamicTab" resultType="kr.co.sist.domain.EmpDomain" parameterType="String">
+	 select empno, sal, ename, hiredate
+	 from	 ${ loc }	 
+	 </select>
+	 
 	 <!-- dynamic query : if, choose, foreach -->
 </mapper>
