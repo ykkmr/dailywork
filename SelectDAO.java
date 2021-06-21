@@ -20,6 +20,7 @@ public class SelectDAO {
 		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
 			//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
 		dname=ss.selectOne("kr.co.sist.selectMapper.singleColumn");
+		if( ss != null ) { ss.close(); } //end if
 		return dname;
 	}
 	
@@ -29,6 +30,7 @@ public class SelectDAO {
 		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
 		//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
 		dd=ss.selectOne("kr.co.sist.selectMapper.multiColumn");
+		if( ss != null ) { ss.close(); } //end if
 		return dd;
 	}//selectMultiColumn
 	
@@ -38,7 +40,7 @@ public class SelectDAO {
 		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
 		//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
 		list =ss.selectList("kr.co.sist.selectMapper.singleColumnMultiRow");
-		
+		if( ss != null ) { ss.close(); } //end if
 		return list;
 	}//selectSingleColumnMultiRow
 	
@@ -48,7 +50,7 @@ public class SelectDAO {
 		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
 		//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
 		list =ss.selectList("kr.co.sist.selectMapper.multiColumnMultiRow");
-		
+		if( ss != null ) { ss.close(); } //end if
 		return list;
 	}//selectSingleColumnMultiRow
 	
@@ -58,7 +60,7 @@ public class SelectDAO {
 		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
 		//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
 		list =ss.selectList("kr.co.sist.selectMapper.greaterThan", sal);
-		
+		if( ss != null ) { ss.close(); } //end if
 		return list;
 	}//selectSingleColumnMultiRow
 	
@@ -68,7 +70,7 @@ public class SelectDAO {
 		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
 		//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
 		list =ss.selectList("kr.co.sist.selectMapper.lessThan", sal);
-		
+		if( ss != null ) { ss.close(); } //end if
 		return list;
 	}//selectSingleColumnMultiRow
 	
