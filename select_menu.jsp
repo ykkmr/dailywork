@@ -31,10 +31,9 @@
 	<td><a href="select_menu.do?page=mcmr">컬럼여려개 여러 행 조회</a></td>
 	<td><a href="select_menu.do?page=salFrm">크다</a></td>
 	<td><a href="select_menu.do?page=salFrm">작다</a></td>
-	<td><a href="select_menu.do?page=singleColumn">subquery</a></td>
-	<td><a href="select_menu.do?page=singleColumn">join</a></td>
-	<td><a href="select_menu.do?page=singleColumn">join & subquery</a></td>
-	<td><a href="select_menu.do?page=singleColumn">동적인 table명</a></td>
+	<td><a href="select_menu.do?page=join">join</a></td>
+	<td><a href="select_menu.do?page=subquery_join">join & subquery</a></td>
+	<td><a href="select_menu.do?page=dynamicTable">동적인 table명</a></td>
 	<td><a href="select_menu.do?page=singleColumn">Dynamic Query</a></td>
 </tr>
 </table>
