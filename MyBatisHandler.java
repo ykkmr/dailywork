@@ -1,4 +1,4 @@
-package kr.co.sist.dao;
+package kr.co.ss.connection;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,28 +12,27 @@ public class MyBatisHandler {
 	private static MyBatisHandler mbh;
 	private static SqlSessionFactory ssf;
 	
-	private MyBatisHandler() {
-		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
+	public MyBatisHandler() {
+		
 	}
 	
 	public static MyBatisHandler getInstance() {
-		if( mbh == null ) {
+		if(mbh == null) {
 			mbh = new MyBatisHandler();
-		}//end if
+		}
 		return mbh;
 	}//getInstance
 	
 	private SqlSessionFactory getSessionFactory() {
-		
 		if(ssf == null) {
 			try {
-				Reader reader = Resources.getResourceAsReader("kr/co/sist/dao/mybatis-config.xml");
-				ssf=new SqlSessionFactoryBuilder().build(reader);
-				if( reader != null ) { reader.close(); };
+				Reader reader = Resources.getResourceAsReader("kr/co/ss/connection/mybatis-config.xml");
+				ssf = new SqlSessionFactoryBuilder().build(reader);
+				if(reader != null) { reader.close(); };
 			} catch (IOException e) {
 				e.printStackTrace();
-			}//end catch
-		}//end if
+			}
+		}
 		return ssf;
 	}//getSessionFactory
 	
