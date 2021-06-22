@@ -66,4 +66,96 @@ from		car_model
 	 </select>
 	 
 	 <!-- dynamic query : if, choose, foreach -->
+	 <!-- 사원테이블에서 사원번호, 연봉, 사원명, 입사일을 조회
+	 단, 매니저번호가 7698인 경우에는 7698매니저가 관리하는 사원의 정보만 조회한다 -->
+	 <select id="dynamic_if" resultType="kr.co.sist.domain.EmpDomain" parameterType="kr.co.sist.vo.MgrVO">
+	 	select empno, ename, sal, hiredate
+	 	from  emp
+		 <where>
+		 		<if test="mgr eq 7698 or mgr eq 7782">
+		 		mgr=#{ mgr }
+		 		</if>
+		 </where>
+	 </select>
+	 <!-- choose : 
+	 		입력값이 1번이면 10번 부서 조회. 2번이면 20번 부서를 조회하고
+	 		그 외의 번호가 입력되면 30번과 40번 부서조회
+	  -->
+	 <select id="dynamic_choose" resultType="kr.co.sist.domain.EmpDomain" parameterType="kr.co.sist.vo.DeptVO">
+		select empno, sal, ename, hiredate
+		from emp
+		<where>
+			<choose>
+				<when test="deptno eq 1">
+					deptno=10
+				</when>
+				<when test="deptno eq 2">
+					deptno=20
+				</when>
+				<otherwise>
+					deptno=30 or deptno=40
+				</otherwise>
+			</choose>
+		</where>
+	 </select>
+	 
+	 <!-- trim :  -->
+ <select id="dynamic_trim" resultType="String" parameterType="int">
+ 	select ename
+	from emp
+ 	<trim prefix="where">
+ 	deptno in (10,30)
+ 	<!-- when에서 동일 값을 아래에서 한번 더 비교하면 아래 when은 타지 않는다.
+ 		값이 다르다면 비교 가능
+ 		parameterType에서 입력되어 사용되는 값이 하나라면 VO가 아니어도 가능하다.
+ 		 -->
+ 	<choose>
+ 	<when test="flag eq 1">
+ 	<trim prefix="or" prefixOverrides="or">empno=7369</trim>
+ 	</when>
+ 	<when test="flag eq 2">
+ 	<trim prefix="or" prefixOverrides="or">job='CLERK'</trim>
+ 	</when>
+ 	<otherwise>
+ 	<trim prefix="or" prefixOverrides="or">or mgr=7902</trim>
+ 	</otherwise>
+ 	</choose>
+ 	</trim>
+ </select>
+ <!--  cp_emp1테이블의 레코드 변경
+	사원번호에 맞는 사원명, 부서번호, 직무를 변경. 단, 사원명과 사원번호는 반드시 입력되며
+	부서번호와 직무가 입력되지 않을 수도 있다 (입력된 값만 update 수행)
+	 -->
+ <update id="dynamic_trim2" parameterType="kr.co.sist.vo.UpdateVO">
+ update cp_emp1
+ set ename=#{ ename }
+ <if test = "deptno neq 0">
+ <trim prefix="," prefixOverrides=".">deptno=#{ deptno }</trim>
+ </if>
+ <if test = "job != null">
+ <trim prefix="," prefixOverrides=".">job=#{ job }</trim>
+ </if>
+ where empno = #{ empno }
+ </update>
+ 
+ <!-- foreach -->
+ <!-- array : 부서번호를 입력받아 부서번호에 해당하는 사원정보를 조회 -->
+ <select id="dynamic_foreach_array" resultType="kr.co.sist.domain.EmpDomain">
+		select empno, sal, ename, hiredate
+		from emp
+		where deptno in 
+		<foreach collection="array" item= "deptno" open="(" separator="," close=")">
+		#{ deptno }
+		</foreach>
+ </select>
+ 
+ <!-- java.util.List -->
+ <select id="dynamic_foreach_list" resultType="kr.co.sist.domain.EmpDomain">
+		select empno, sal, ename, hiredate
+		from emp
+		where deptno in 
+		<foreach collection="collection" item= "deptno" open="(" separator="," close=")">
+		#{ deptno }
+		</foreach>
+ </select>
 </mapper>
