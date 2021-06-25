@@ -1,24 +1,24 @@
-package kr.co.sist.dao;
+package kr.co.sist.di;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
-import kr.co.sist.domain.EmpDomain;
-
+/**
+ *	의존성 주입할 클래스
+ * @author user
+ */
 @Component
 public class DependencyDAO {
-	public DependencyDAO() {
-		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
-	}
-	public List<EmpDomain> selectMultiColumnMultiRow() {
-		List<EmpDomain> list= null;
-		//1. MyBatis Handler 얻기
-		SqlSession ss = MyBatisHandler.getInstance().getHandler();	
-		//2. id에 해당하는 쿼리를 찾아서 실행한 후 결과 얻기
-		list =ss.selectList("kr.co.sist.selectMapper.multiColumnMultiRow");
-		if( ss != null ) { ss.close(); } //end if
+
+	public List<String> selectList(){
+		List<String> list = new ArrayList<String>();
+			list.add("오늘은");
+			list.add("금요일");
+			list.add("입니다");
+			list.add("다음 주 29일은 수료를 하는 날 입니다");
+			list.add("그동안 고생 많으셨습니다 포항항");
 		return list;
-	}//selectSingleColumnMultiRow
+	}//selectList
 }
