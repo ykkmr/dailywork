@@ -1,24 +1,18 @@
-package kr.co.sist.service;
+package kr.co.sist.di;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import kr.co.sist.dao.DependencyDAO;
-import kr.co.sist.domain.EmpDomain;
 
 @Component
 public class DependencyService {
+
+	private DependencyDAO pDAO;//의존성 주입 받을 클래스
 	
-	@Autowired(required = false)
-	private DependencyDAO dDAO; //의존성 주입 받기
+	//@Autowired가 들어가면 의존성 주입받기위한 생성자가 필요없다
 	
-	public List<EmpDomain> searchEmpData(){
+	public List<String> searchList(){
 		//의존성 주입받은 객체 사용
-		List<EmpDomain> list = dDAO.selectMultiColumnMultiRow();
-		
-		return list;
-	}
-	
-}//class
+		return pDAO.selectList();
+	}//searchList
+}
