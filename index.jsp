@@ -57,6 +57,7 @@ function removeEmp( empno ){
 	</c:forEach>
 	</li>
 	<li><a href="select/select_menu.do">조회사용</a></li>
+	<li><a href="autowired/select_autowired.do">autowired사용</a></li>
 </ul>
 </div>
 </body>
